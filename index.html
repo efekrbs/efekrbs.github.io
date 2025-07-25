@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berat Efe Karabaş - Kişisel Web Sayfası</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #667eea;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-img">👨‍💻</div>
+            <h1>Berat Efe Karabaş</h1>
+            <p class="subtitle">Web Geliştirici & Yazılım Mühendisi</p>
+            <a href="#iletisim" class="btn">Benimle İletişime Geç</a>
+            <a href="#projeler" class="btn">Projelerimi Gör</a>
+        </header>
+
+        <section class="section">
+            <h2>🚀 Hakkımda</h2>
+            <p>
+                Merhaba! Ben Berat Efe Karabaş. Yazılım geliştirme alanında tutkulu bir geliştiriciyim. 
+                Modern web teknolojileri ile kullanıcı dostu ve etkili çözümler üretmeyi seviyorum. 
+                Sürekli öğrenmeye açık, yenilikçi projelerde yer almaktan keyif alıyorum.
+            </p>
+            <br>
+            <p>
+                Bu sayfa GitHub Pages üzerinde barındırılmaktadır ve sürekli olarak güncellenmektedir. 
+                Projelerim ve deneyimlerim hakkında daha fazla bilgi almak için benimle iletişime geçebilirsiniz.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>💼 Yeteneklerim</h2>
+            <div class="skills">
+                <div class="skill-item">🌐 HTML & CSS</div>
+                <div class="skill-item">⚡ JavaScript</div>
+                <div class="skill-item">🔥 React.js</div>
+                <div class="skill-item">🚀 Node.js</div>
+                <div class="skill-item">🗄️ Database</div>
+                <div class="skill-item">🔧 Git & GitHub</div>
+                <div class="skill-item">📱 Responsive Design</div>
+                <div class="skill-item">🎨 UI/UX Design</div>
+            </div>
+        </section>
+
+        <section class="section" id="projeler">
+            <h2>🚧 Projelerim</h2>
+            <p>
+                Şu anda çeşitli web projeleri üzerinde çalışıyorum. Yakında bu bölümde 
+                tamamladığım projeleri ve detaylarını paylaşacağım.
+            </p>
+            <br>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                <h3>🔄 Güncellemeler Yakında...</h3>
+                <p>Yeni projeler ve portfolyo örnekleri için beni takip etmeye devam edin!</p>
+            </div>
+        </section>
+
+        <section class="section" id="iletisim">
+            <h2>📞 İletişim</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📧 E-posta</h3>
+                    <p>beratefe@email.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>💼 LinkedIn</h3>
+                    <p>linkedin.com/in/beratefek</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🐙 GitHub</h3>
+                    <p>github.com/beratefekarabas</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🌍 Konum</h3>
+                    <p>Türkiye</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Berat Efe Karabaş. Tüm hakları saklıdır. | GitHub Pages ile güçlendirilmiştir.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Console message for developers
+        console.log('👋 Merhaba! Bu sayfanın kodunu incelediğin için teşekkürler. İletişime geçmek için: beratefe@email.com');
+    </script>
+</body>
+</html>
