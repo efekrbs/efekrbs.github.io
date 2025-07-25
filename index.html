@@ -11,9 +11,33 @@
         <header>
             <div class="profile-img">👨‍💻</div>
             <h1>Berat Efe Karabaş</h1>
-            <p class="subtitle">Web Geliştirici & Yazılım Mühendisi</p>
+            <p class="subtitle">
+                <span id="typing-text"></span>
+                <span class="cursor">|</span>
+            </p>
+            <div class="theme-toggle">
+                <button id="theme-btn" class="theme-btn">🌙</button>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/beratefekarabas" target="_blank" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/beratefek" target="_blank" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="mailto:beratefe@email.com" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.98L12 11.11l9.382-7.29h.982C23.268 3.82 24 4.553 24 5.457z"/>
+                    </svg>
+                </a>
+            </div>
             <a href="#iletisim" class="btn">Benimle İletişime Geç</a>
             <a href="#projeler" class="btn">Projelerimi Gör</a>
+            <a href="#" class="btn btn-secondary" id="download-cv">📄 CV İndir</a>
         </header>
 
         <section class="section">
@@ -33,48 +57,225 @@
         <section class="section">
             <h2>💼 Yeteneklerim</h2>
             <div class="skills">
-                <div class="skill-item">🌐 HTML & CSS</div>
-                <div class="skill-item">⚡ JavaScript</div>
-                <div class="skill-item">🔥 React.js</div>
-                <div class="skill-item">🚀 Node.js</div>
-                <div class="skill-item">🗄️ Database</div>
-                <div class="skill-item">🔧 Git & GitHub</div>
-                <div class="skill-item">📱 Responsive Design</div>
-                <div class="skill-item">🎨 UI/UX Design</div>
+                <div class="skill-item">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML & CSS</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90"></div>
+                    </div>
+                    <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85"></div>
+                    </div>
+                    <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔥</div>
+                    <h3>React.js</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="80"></div>
+                    </div>
+                    <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Node.js</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="75"></div>
+                    </div>
+                    <span class="skill-percent">75%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Database</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="70"></div>
+                    </div>
+                    <span class="skill-percent">70%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Git & GitHub</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="88"></div>
+                    </div>
+                    <span class="skill-percent">88%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="92"></div>
+                    </div>
+                    <span class="skill-percent">92%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="78"></div>
+                    </div>
+                    <span class="skill-percent">78%</span>
+                </div>
             </div>
         </section>
 
         <section class="section" id="projeler">
             <h2>🚧 Projelerim</h2>
-            <p>
-                Şu anda çeşitli web projeleri üzerinde çalışıyorum. Yakında bu bölümde 
-                tamamladığım projeleri ve detaylarını paylaşacağım.
-            </p>
-            <br>
-            <div class="update-box">
-                <h3>🔄 Güncellemeler Yakında...</h3>
-                <p>Yeni projeler ve portfolyo örnekleri için beni takip etmeye devam edin!</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🌐</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Kişisel Web Sitesi</h3>
+                        <p>Modern CSS ve JavaScript kullanarak geliştirilmiş responsive kişisel portfolyo sitesi.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/efekrbs/efekrbs.github.io" target="_blank" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="https://efekrbs.github.io" target="_blank" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                                </svg>
+                                Canlı Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">⚡</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>JavaScript Web Uygulaması</h3>
+                        <p>Vanilla JavaScript ile geliştirilmiş interaktif web uygulaması. Modern ES6+ özellikleri kullanıldı.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">HTML5</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                Yakında
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🔥</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>React Projesi</h3>
+                        <p>Modern React hooks ve state management kullanılarak geliştirilmiş responsive web uygulaması.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                Geliştiriliyor
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="blog">
+            <h2>📝 Blog & Yazılar</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-date">26 Temmuz 2025</div>
+                    <h3>Modern Web Geliştirme Trends</h3>
+                    <p>2025 yılında web geliştirme dünyasında öne çıkan teknolojiler ve trendler hakkında düşüncelerim...</p>
+                    <a href="#" class="read-more">Devamını Oku →</a>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-date">20 Temmuz 2025</div>
+                    <h3>JavaScript ES2025 Yenilikleri</h3>
+                    <p>JavaScript'in en yeni sürümünde gelen özellikler ve bu özelliklerin projelerimizde nasıl kullanabileceğiz...</p>
+                    <a href="#" class="read-more">Devamını Oku →</a>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-date">15 Temmuz 2025</div>
+                    <h3>CSS Grid vs Flexbox</h3>
+                    <p>Modern layout sistemlerinden CSS Grid ve Flexbox'ın karşılaştırması ve hangi durumda hangisini kullanmalıyız...</p>
+                    <a href="#" class="read-more">Devamını Oku →</a>
+                </article>
             </div>
         </section>
 
         <section class="section" id="iletisim">
             <h2>📞 İletişim</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>📧 E-posta</h3>
-                    <p>beratefe@email.com</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>📧 E-posta</h3>
+                        <p>beratefe@email.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>💼 LinkedIn</h3>
+                        <p>linkedin.com/in/beratefek</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>🐙 GitHub</h3>
+                        <p>github.com/beratefekarabas</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>🌍 Konum</h3>
+                        <p>Türkiye</p>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <h3>💼 LinkedIn</h3>
-                    <p>linkedin.com/in/beratefek</p>
-                </div>
-                <div class="contact-item">
-                    <h3>🐙 GitHub</h3>
-                    <p>github.com/beratefekarabas</p>
-                </div>
-                <div class="contact-item">
-                    <h3>🌍 Konum</h3>
-                    <p>Türkiye</p>
+                
+                <div class="contact-form-container">
+                    <h3>💌 Mesaj Gönder</h3>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">İsim</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesaj</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Mesaj Gönder</span>
+                            <span class="btn-loading" style="display: none;">Gönderiliyor...</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -85,6 +286,69 @@
     </footer>
 
     <script>
+        // Theme Management
+        const themeBtn = document.getElementById('theme-btn');
+        const body = document.body;
+        
+        // Check for saved theme or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        body.setAttribute('data-theme', savedTheme);
+        themeBtn.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+        
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeBtn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        });
+
+        // Typing Animation
+        const typingTexts = [
+            'Web Geliştirici & Yazılım Mühendisi',
+            'Frontend Developer',
+            'React.js Uzmanı',
+            'JavaScript Geliştiricisi',
+            'UI/UX Tasarımcısı'
+        ];
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+        
+        function typeWriter() {
+            const currentText = typingTexts[textIndex];
+            const typingElement = document.getElementById('typing-text');
+            
+            if (!isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(typeWriter, pauseTime);
+                    return;
+                }
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % typingTexts.length;
+                }
+            }
+            
+            setTimeout(typeWriter, isDeleting ? deletingSpeed : typingSpeed);
+        }
+        
+        // Start typing animation
+        typeWriter();
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -99,6 +363,27 @@
             });
         });
 
+        // Skill progress bars animation
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            skillBars.forEach(bar => {
+                const progress = bar.getAttribute('data-progress');
+                bar.style.width = progress + '%';
+            });
+        }
+
+        // Parallax scroll effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.profile-img');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.1;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
         // Add fade-in animation on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -110,6 +395,11 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    
+                    // Animate skill bars when skills section comes into view
+                    if (entry.target.querySelector('.skills')) {
+                        setTimeout(animateSkillBars, 300);
+                    }
                 }
             });
         }, observerOptions);
@@ -122,8 +412,45 @@
             observer.observe(section);
         });
 
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btnText = document.querySelector('.btn-text');
+            const btnLoading = document.querySelector('.btn-loading');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                alert('Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağım.');
+                this.reset();
+                
+                // Reset button state
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // CV Download
+        document.getElementById('download-cv').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('CV indirme özelliği yakında aktif olacak! 📄');
+        });
+
+        // Loading Animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
         // Console message for developers
         console.log('👋 Merhaba! Bu sayfanın kodunu incelediğin için teşekkürler. İletişime geçmek için: beratefe@email.com');
+        console.log('🚀 Site özellikleri: Dark/Light mode, Typing animation, Parallax scroll, Skill bars, Contact form');
     </script>
 </body>
 </html>
