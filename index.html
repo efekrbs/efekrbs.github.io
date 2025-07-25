@@ -45,7 +45,7 @@
     <title>Berat Efe Karabaş - Kişisel Web Sayfası</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="loaded">
     <div class="container">
         <header>
             <div class="profile-img">
@@ -504,14 +504,14 @@
             }, 2000);
         });
 
-        // Loading Animation
-        window.addEventListener('load', () => {
+        // Loading Animation - Sayfa zaten loaded ile başlıyor
+        // Ek özellikler DOM hazır olduğunda
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure loaded class is present
             document.body.classList.add('loaded');
             
-            // Initialize custom cursor
+            // Initialize features
             initCustomCursor();
-            
-            // Initialize other effects
             initRippleEffects();
             initParticleEffects();
         });
