@@ -1,0 +1,25 @@
+{
+    "name": "Berat Efe Karabaş - Portfolio",
+    "short_name": "BEK Portfolio",
+    "description": "Full Stack Developer ve Software Engineer portfolio websitesi",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#3498db",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/pp.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "images/pp.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg"
+        }
+    ],
+    "categories": ["portfolio", "developer", "technology"],
+    "lang": "tr",
+    "dir": "ltr"
+}

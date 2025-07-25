@@ -3,6 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Berat Efe Karabaş - Web Geliştirici ve Yazılım Mühendisi. Modern web teknolojileri ile kullanıcı dostu çözümler üretiyorum.">
+    <meta name="keywords" content="web developer, yazılım mühendisi, frontend developer, react, javascript, html, css">
+    <meta name="author" content="Berat Efe Karabaş">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Berat Efe Karabaş - Web Geliştirici">
+    <meta property="og:description" content="Modern web teknolojileri ile kullanıcı dostu çözümler üretiyorum.">
+    <meta property="og:image" content="https://efekrbs.github.io/images/pp.jpg">
+    <meta property="og:url" content="https://efekrbs.github.io">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Berat Efe Karabaş - Web Geliştirici">
+    <meta name="twitter:description" content="Modern web teknolojileri ile kullanıcı dostu çözümler üretiyorum.">
+    <meta name="twitter:image" content="https://efekrbs.github.io/images/pp.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/pp.jpg">
+    <link rel="apple-touch-icon" href="images/pp.jpg">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3498db">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BEK Portfolio">
+    
+    <!-- Preload Important Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="images/pp.jpg" as="image">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://efekrbs.github.io/">
+    
     <title>Berat Efe Karabaş - Kişisel Web Sayfası</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -442,12 +481,174 @@
         // CV Download
         document.getElementById('download-cv').addEventListener('click', function(e) {
             e.preventDefault();
-            alert('CV indirme özelliği yakında aktif olacak! 📄');
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.href = 'assets/cv-berat-efe-karabas.pdf';
+            link.download = 'CV-Berat-Efe-Karabas.pdf';
+            link.target = '_blank';
+            
+            // Trigger download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show success message
+            const originalText = this.innerHTML;
+            this.innerHTML = '✅ CV İndiriliyor...';
+            this.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.background = '';
+            }, 2000);
         });
 
         // Loading Animation
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
+            
+            // Initialize custom cursor
+            initCustomCursor();
+            
+            // Initialize other effects
+            initRippleEffects();
+            initParticleEffects();
+        });
+
+        // Custom Cursor Implementation
+        function initCustomCursor() {
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor';
+            document.body.appendChild(cursor);
+            
+            const follower = document.createElement('div');
+            follower.className = 'cursor-follower';
+            document.body.appendChild(follower);
+            
+            let mouseX = 0, mouseY = 0;
+            let followerX = 0, followerY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            });
+            
+            // Smooth following cursor
+            function updateFollower() {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                follower.style.left = followerX + 'px';
+                follower.style.top = followerY + 'px';
+                requestAnimationFrame(updateFollower);
+            }
+            updateFollower();
+            
+            // Hover effects
+            document.querySelectorAll('a, button, .btn, .skill-item, .project-card').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                    follower.classList.add('hover');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                    follower.classList.remove('hover');
+                });
+            });
+        }
+
+        // Ripple Effects
+        function initRippleEffects() {
+            document.querySelectorAll('.btn, .skill-item, .project-card').forEach(el => {
+                el.classList.add('ripple');
+            });
+        }
+
+        // Particle Click Effects
+        function initParticleEffects() {
+            document.addEventListener('click', (e) => {
+                createParticles(e.clientX, e.clientY);
+            });
+        }
+
+        function createParticles(x, y) {
+            for (let i = 0; i < 6; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.width = '4px';
+                particle.style.height = '4px';
+                particle.style.background = `hsl(${220 + Math.random() * 60}, 70%, 60%)`;
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '10000';
+                
+                const angle = (Math.PI * 2 * i) / 6;
+                const velocity = 50 + Math.random() * 50;
+                
+                document.body.appendChild(particle);
+                
+                let posX = x;
+                let posY = y;
+                let velX = Math.cos(angle) * velocity;
+                let velY = Math.sin(angle) * velocity;
+                let opacity = 1;
+                
+                function animateParticle() {
+                    posX += velX * 0.02;
+                    posY += velY * 0.02;
+                    velY += 0.5; // gravity
+                    opacity -= 0.02;
+                    
+                    particle.style.left = posX + 'px';
+                    particle.style.top = posY + 'px';
+                    particle.style.opacity = opacity;
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animateParticle);
+                    } else {
+                        document.body.removeChild(particle);
+                    }
+                }
+                animateParticle();
+            }
+        }
+
+        // Enhanced Scroll Effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.profile-img');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.1;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+            
+            // Update progress bar
+            const winHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const scrollPercent = scrolled / (docHeight - winHeight);
+            
+            // Create progress bar if it doesn't exist
+            if (!document.querySelector('.scroll-progress')) {
+                const progressBar = document.createElement('div');
+                progressBar.className = 'scroll-progress';
+                progressBar.style.position = 'fixed';
+                progressBar.style.top = '0';
+                progressBar.style.left = '0';
+                progressBar.style.width = '100%';
+                progressBar.style.height = '3px';
+                progressBar.style.background = 'linear-gradient(90deg, var(--accent-blue), var(--accent-purple))';
+                progressBar.style.transformOrigin = 'left';
+                progressBar.style.zIndex = '10001';
+                document.body.appendChild(progressBar);
+            }
+            
+            const progressBar = document.querySelector('.scroll-progress');
+            progressBar.style.transform = `scaleX(${scrollPercent})`;
         });
 
         // Console message for developers

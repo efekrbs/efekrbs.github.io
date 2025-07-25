@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://efekrbs.github.io/sitemap.xml
+
+# Disallow certain file types
+Disallow: *.pdf$
+Disallow: /assets/
+
+# Allow important pages
+Allow: /index.html
+Allow: /
+
+# Crawl delay (optional)
+Crawl-delay: 1
