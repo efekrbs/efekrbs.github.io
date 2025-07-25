@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Berat Efe Karabaş</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Berat Efe Karabaş'ın teknoloji, web geliştirme, programlama ve yazılım mühendisliği üzerine blog yazıları.">
+    <meta name="keywords" content="blog, web development, javascript, react, node.js, programlama, yazılım">
+    <meta name="author" content="Berat Efe Karabaş">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog | Berat Efe Karabaş">
+    <meta property="og:description" content="Teknoloji, web geliştirme ve programlama üzerine blog yazıları">
+    <meta property="og:image" content="https://efekrbs.github.io/images/pp.jpg">
+    <meta property="og:url" content="https://efekrbs.github.io/blog/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../images/pp.jpg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="blog-nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <img src="../images/pp.jpg" alt="Berat Efe Karabaş" class="nav-avatar">
+                <span>BEK</span>
+            </a>
+            <div class="nav-links">
+                <a href="../">Ana Sayfa</a>
+                <a href="./" class="active">Blog</a>
+                <a href="../#contact">İletişim</a>
+                <button id="theme-toggle" class="theme-btn" aria-label="Tema Değiştir">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="blog-hero">
+        <div class="container">
+            <h1 class="blog-title">
+                <span class="gradient-text">Blog</span>
+            </h1>
+            <p class="blog-subtitle">
+                Teknoloji, web geliştirme ve programlama dünyasından 
+                <span class="highlight">insights</span> ve deneyimlerim
+            </p>
+        </div>
+    </header>
+
+    <!-- Blog Posts Grid -->
+    <main class="blog-main">
+        <div class="container">
+            <!-- Featured Post -->
+            <section class="featured-post">
+                <h2 class="section-title">📌 Öne Çıkan Yazı</h2>
+                <article class="post-card featured">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/800x400/3498db/ffffff?text=React+Hooks" alt="React Hooks Rehberi">
+                        <div class="post-category">React</div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">
+                            <a href="react-hooks-rehberi/">React Hooks: Kapsamlı Rehber ve Best Practices</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            React Hooks ile functional component'lerde state management ve lifecycle işlemlerini 
+                            nasıl etkili şekilde kullanabiliriz? Detaylar, örnekler ve pratik ipuçları...
+                        </p>
+                        <div class="post-meta">
+                            <span class="post-date">📅 25 Ocak 2024</span>
+                            <span class="post-read-time">⏱️ 8 dk okuma</span>
+                            <span class="post-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Hooks</span>
+                                <span class="tag">JavaScript</span>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- All Posts -->
+            <section class="all-posts">
+                <div class="posts-header">
+                    <h2 class="section-title">📝 Tüm Yazılar</h2>
+                    <div class="posts-filter">
+                        <button class="filter-btn active" data-filter="all">Tümü</button>
+                        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                        <button class="filter-btn" data-filter="react">React</button>
+                        <button class="filter-btn" data-filter="nodejs">Node.js</button>
+                        <button class="filter-btn" data-filter="tips">İpuçları</button>
+                    </div>
+                </div>
+
+                <div class="posts-grid">
+                    <!-- Post 1 -->
+                    <article class="post-card" data-category="react javascript">
+                        <div class="post-image">
+                            <img src="https://via.placeholder.com/400x200/e74c3c/ffffff?text=React+Hooks" alt="React Hooks">
+                            <div class="post-category">React</div>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="react-hooks-rehberi/">React Hooks: Kapsamlı Rehber</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                useState, useEffect, useContext ve custom hooks ile modern React development...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">25 Ocak 2024</span>
+                                <span class="post-read-time">8 dk</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article class="post-card" data-category="javascript tips">
+                        <div class="post-image">
+                            <img src="https://via.placeholder.com/400x200/f39c12/ffffff?text=JavaScript+Tips" alt="JavaScript İpuçları">
+                            <div class="post-category">JavaScript</div>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="javascript-ipuclari-2024/">JavaScript İpuçları 2024</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Modern JavaScript'te bilmeniz gereken 15 pratik ipucu ve trick...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">22 Ocak 2024</span>
+                                <span class="post-read-time">5 dk</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article class="post-card" data-category="nodejs">
+                        <div class="post-image">
+                            <img src="https://via.placeholder.com/400x200/27ae60/ffffff?text=Node.js+API" alt="Node.js API">
+                            <div class="post-category">Node.js</div>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="nodejs-api-gelistirme/">Node.js ile RESTful API Geliştirme</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Express.js, MongoDB ve authentication ile güvenli API geliştirme adımları...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">18 Ocak 2024</span>
+                                <span class="post-read-time">12 dk</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 4 -->
+                    <article class="post-card" data-category="tips">
+                        <div class="post-image">
+                            <img src="https://via.placeholder.com/400x200/9b59b6/ffffff?text=Web+Performance" alt="Web Performance">
+                            <div class="post-category">Performance</div>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="web-performance-optimizasyonu/">Web Performance Optimizasyonu</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Website hızını artırmak için pratik teknikler ve araçlar...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">15 Ocak 2024</span>
+                                <span class="post-read-time">7 dk</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 5 -->
+                    <article class="post-card" data-category="react javascript">
+                        <div class="post-image">
+                            <img src="https://via.placeholder.com/400x200/34495e/ffffff?text=React+Context" alt="React Context">
+                            <div class="post-category">React</div>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="react-context-api/">React Context API ile State Management</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Prop drilling sorununu çözmek için Context API kullanımı...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">12 Ocak 2024</span>
+                                <span class="post-read-time">6 dk</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Post 6 -->
+                    <article class="post-card" data-category="javascript tips">
+                        <div class="post-image">
+                            <img src="https://via.placeholder.com/400x200/e67e22/ffffff?text=ES6+Features" alt="ES6 Features">
+                            <div class="post-category">ES6</div>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="modern-javascript-es6/">Modern JavaScript: ES6+ Özellikleri</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Arrow functions, destructuring, async/await ve daha fazlası...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">10 Ocak 2024</span>
+                                <span class="post-read-time">10 dk</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-section">
+                    <button class="btn load-more-btn">
+                        Daha Fazla Yazı Yükle
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>📬 Blog Güncellemelerini Kaçırma!</h3>
+                <p>Yeni yazılarımdan haberdar olmak için e-posta adresini bırak</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="E-posta adresin" required>
+                    <button type="submit" class="btn">Abone Ol</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2024 Berat Efe Karabaş. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-right">
+                    <a href="../">Ana Sayfa</a>
+                    <a href="../#projects">Projeler</a>
+                    <a href="../#contact">İletişim</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const newTheme = theme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // Filter Functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const postCards = document.querySelectorAll('.post-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter posts
+                postCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Newsletter Form
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            alert(`Teşekkürler! ${email} adresi için abonelik isteği alındı.`);
+            e.target.reset();
+        });
+
+        // Load More Functionality
+        document.querySelector('.load-more-btn').addEventListener('click', () => {
+            alert('Daha fazla yazı yükleniyor... (Bu özellik yakında aktif olacak)');
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.post-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

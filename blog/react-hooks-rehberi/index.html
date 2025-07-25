@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Hooks: Kapsamlı Rehber ve Best Practices | Berat Efe Karabaş</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="React Hooks ile functional component'lerde state management ve lifecycle işlemlerini nasıl etkili şekilde kullanabiliriz? Kapsamlı rehber, örnekler ve best practices.">
+    <meta name="keywords" content="react hooks, useState, useEffect, useContext, custom hooks, react tutorial, javascript">
+    <meta name="author" content="Berat Efe Karabaş">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="React Hooks: Kapsamlı Rehber ve Best Practices">
+    <meta property="og:description" content="React Hooks ile modern React development. useState, useEffect, useContext ve custom hooks rehberi.">
+    <meta property="og:image" content="https://efekrbs.github.io/images/pp.jpg">
+    <meta property="og:url" content="https://efekrbs.github.io/blog/react-hooks-rehberi/">
+    <meta property="og:type" content="article">
+    
+    <!-- Article Meta -->
+    <meta property="article:author" content="Berat Efe Karabaş">
+    <meta property="article:published_time" content="2024-01-25">
+    <meta property="article:tag" content="React">
+    <meta property="article:tag" content="Hooks">
+    <meta property="article:tag" content="JavaScript">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../images/pp.jpg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="post.css">
+    
+    <!-- Code Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="blog-nav">
+        <div class="nav-container">
+            <a href="../../" class="nav-logo">
+                <img src="../../images/pp.jpg" alt="Berat Efe Karabaş" class="nav-avatar">
+                <span>BEK</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../">Ana Sayfa</a>
+                <a href="../">Blog</a>
+                <a href="../../#contact">İletişim</a>
+                <button id="theme-toggle" class="theme-btn" aria-label="Tema Değiştir">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../">Blog</a> > <span>React Hooks Rehberi</span>
+            </div>
+            
+            <h1 class="article-title">
+                React Hooks: Kapsamlı Rehber ve Best Practices
+            </h1>
+            
+            <div class="article-meta">
+                <div class="author-info">
+                    <img src="../../images/pp.jpg" alt="Berat Efe Karabaş" class="author-avatar">
+                    <div>
+                        <span class="author-name">Berat Efe Karabaş</span>
+                        <span class="publish-date">25 Ocak 2024</span>
+                    </div>
+                </div>
+                <div class="article-stats">
+                    <span>⏱️ 8 dakika okuma</span>
+                    <span>👁️ 1,247 görüntüleme</span>
+                </div>
+            </div>
+            
+            <div class="article-tags">
+                <span class="tag">React</span>
+                <span class="tag">Hooks</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Frontend</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <div class="container">
+            <div class="article-content">
+                <div class="article-image">
+                    <img src="https://via.placeholder.com/800x400/3498db/ffffff?text=React+Hooks+Rehberi" alt="React Hooks Rehberi">
+                </div>
+
+                <div class="content-wrapper">
+                    <aside class="table-of-contents">
+                        <h3>İçindekiler</h3>
+                        <ul>
+                            <li><a href="#giris">Giriş</a></li>
+                            <li><a href="#usestate">useState Hook</a></li>
+                            <li><a href="#useeffect">useEffect Hook</a></li>
+                            <li><a href="#usecontext">useContext Hook</a></li>
+                            <li><a href="#custom-hooks">Custom Hooks</a></li>
+                            <li><a href="#best-practices">Best Practices</a></li>
+                            <li><a href="#sonuc">Sonuç</a></li>
+                        </ul>
+                    </aside>
+
+                    <article class="article-body">
+                        <section id="giris">
+                            <h2>🚀 Giriş</h2>
+                            <p>
+                                React Hooks, React 16.8 ile birlikte gelen ve functional component'lerde state ve diğer React özelliklerini kullanmamızı sağlayan güçlü bir API. Bu rehberde, en önemli hook'ları detaylıca inceleyeceğiz ve gerçek dünya örnekleriyle nasıl kullanılacağını göreceğiz.
+                            </p>
+                            
+                            <div class="info-box">
+                                <h4>💡 Bu yazıda öğrenecekleriniz:</h4>
+                                <ul>
+                                    <li>useState ile state yönetimi</li>
+                                    <li>useEffect ile lifecycle işlemleri</li>
+                                    <li>useContext ile global state</li>
+                                    <li>Custom hook'lar nasıl yazılır</li>
+                                    <li>Hook'lar için best practice'ler</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section id="usestate">
+                            <h2>📊 useState Hook</h2>
+                            <p>
+                                <code>useState</code> hook'u, functional component'lerde state kullanmamızı sağlar. En basit ve en sık kullanılan hook'lardan biridir.
+                            </p>
+
+                            <h3>Temel Kullanım</h3>
+                            <pre><code class="language-javascript">import React, { useState } from 'react';
+
+function Counter() {
+  // State tanımlama
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Sayı: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Artır
+      &lt;/button&gt;
+      &lt;button onClick={() =&gt; setCount(count - 1)}&gt;
+        Azalt
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+                            <h3>Fonksiyonel Update</h3>
+                            <p>
+                                State güncellemelerinde önceki değeri kullanırken, fonksiyonel update tercih edilmelidir:
+                            </p>
+                            <pre><code class="language-javascript">// ❌ Önerilmeyen
+setCount(count + 1);
+
+// ✅ Önerilen
+setCount(prevCount =&gt; prevCount + 1);</code></pre>
+
+                            <h3>Object State Yönetimi</h3>
+                            <pre><code class="language-javascript">function UserProfile() {
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    age: 0
+  });
+
+  const updateName = (newName) =&gt; {
+    setUser(prevUser =&gt; ({
+      ...prevUser,
+      name: newName
+    }));
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;input 
+        value={user.name}
+        onChange={(e) =&gt; updateName(e.target.value)}
+        placeholder="İsim"
+      /&gt;
+      &lt;p&gt;Merhaba {user.name}!&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </section>
+
+                        <section id="useeffect">
+                            <h2>⚡ useEffect Hook</h2>
+                            <p>
+                                <code>useEffect</code> hook'u, side effect'leri yönetmek için kullanılır. Component mount, update ve unmount lifecycle'larını yönetir.
+                            </p>
+
+                            <h3>Temel Kullanım</h3>
+                            <pre><code class="language-javascript">import React, { useState, useEffect } from 'react';
+
+function DataFetcher() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() =&gt; {
+    // Component mount olduğunda çalışır
+    fetchData();
+  }, []); // Boş dependency array
+
+  const fetchData = async () =&gt; {
+    try {
+      const response = await fetch('/api/data');
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      console.error('Veri yüklenirken hata:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) return &lt;div&gt;Yükleniyor...&lt;/div&gt;;
+
+  return (
+    &lt;ul&gt;
+      {data.map(item =&gt; (
+        &lt;li key={item.id}&gt;{item.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+
+                            <h3>Cleanup Function</h3>
+                            <pre><code class="language-javascript">function Timer() {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() =&gt; {
+    const interval = setInterval(() =&gt; {
+      setSeconds(prev =&gt; prev + 1);
+    }, 1000);
+
+    // Cleanup function
+    return () =&gt; {
+      clearInterval(interval);
+    };
+  }, []);
+
+  return &lt;div&gt;Geçen süre: {seconds} saniye&lt;/div&gt;;
+}</code></pre>
+
+                            <div class="warning-box">
+                                <h4>⚠️ Dikkat!</h4>
+                                <p>
+                                    useEffect'te kullandığınız her değişkeni dependency array'e eklemeyi unutmayın. 
+                                    ESLint kuralı <code>exhaustive-deps</code> bu konuda yardımcı olacaktır.
+                                </p>
+                            </div>
+                        </section>
+
+                        <section id="usecontext">
+                            <h2>🌐 useContext Hook</h2>
+                            <p>
+                                <code>useContext</code> hook'u, Context API ile oluşturulan context'leri consume etmek için kullanılır. Prop drilling problemini çözer.
+                            </p>
+
+                            <h3>Context Oluşturma</h3>
+                            <pre><code class="language-javascript">// ThemeContext.js
+import React, { createContext, useContext, useState } from 'react';
+
+const ThemeContext = createContext();
+
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () =&gt; {
+    setTheme(prev =&gt; prev === 'light' ? 'dark' : 'light');
+  };
+
+  return (
+    &lt;ThemeContext.Provider value={{ theme, toggleTheme }}&gt;
+      {children}
+    &lt;/ThemeContext.Provider&gt;
+  );
+}
+
+// Custom hook
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within ThemeProvider');
+  }
+  return context;
+}</code></pre>
+
+                            <h3>Context Kullanımı</h3>
+                            <pre><code class="language-javascript">// App.js
+function App() {
+  return (
+    &lt;ThemeProvider&gt;
+      &lt;Header /&gt;
+      &lt;MainContent /&gt;
+    &lt;/ThemeProvider&gt;
+  );
+}
+
+// Header.js
+function Header() {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    &lt;header className={`header header--${theme}`}&gt;
+      &lt;h1&gt;My App&lt;/h1&gt;
+      &lt;button onClick={toggleTheme}&gt;
+        {theme === 'light' ? '🌙' : '☀️'}
+      &lt;/button&gt;
+    &lt;/header&gt;
+  );
+}</code></pre>
+                        </section>
+
+                        <section id="custom-hooks">
+                            <h2>🔧 Custom Hooks</h2>
+                            <p>
+                                Custom hook'lar, stateful logic'i component'ler arasında paylaşmak için kullanılır. Hook kurallarına uygun şekilde yazılmalıdır.
+                            </p>
+
+                            <h3>useLocalStorage Hook</h3>
+                            <pre><code class="language-javascript">import { useState, useEffect } from 'react';
+
+function useLocalStorage(key, initialValue) {
+  // State'i localStorage'dan initialize et
+  const [storedValue, setStoredValue] = useState(() =&gt; {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      console.error('localStorage okuma hatası:', error);
+      return initialValue;
+    }
+  });
+
+  // setValue fonksiyonu
+  const setValue = (value) =&gt; {
+    try {
+      // Functional update'i destekle
+      const valueToStore = 
+        value instanceof Function ? value(storedValue) : value;
+      
+      setStoredValue(valueToStore);
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      console.error('localStorage yazma hatası:', error);
+    }
+  };
+
+  return [storedValue, setValue];
+}
+
+// Kullanım
+function Settings() {
+  const [settings, setSettings] = useLocalStorage('appSettings', {
+    notifications: true,
+    theme: 'light'
+  });
+
+  return (
+    &lt;div&gt;
+      &lt;label&gt;
+        &lt;input
+          type="checkbox"
+          checked={settings.notifications}
+          onChange={(e) =&gt; setSettings(prev =&gt; ({
+            ...prev,
+            notifications: e.target.checked
+          }))}
+        /&gt;
+        Bildirimler
+      &lt;/label&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+                            <h3>useFetch Hook</h3>
+                            <pre><code class="language-javascript">import { useState, useEffect } from 'react';
+
+function useFetch(url, options = {}) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() =&gt; {
+    const abortController = new AbortController();
+
+    const fetchData = async () =&gt; {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const response = await fetch(url, {
+          ...options,
+          signal: abortController.signal
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          setError(err.message);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+
+    // Cleanup: request'i iptal et
+    return () =&gt; abortController.abort();
+  }, [url]);
+
+  return { data, loading, error };
+}
+
+// Kullanım
+function UserList() {
+  const { data: users, loading, error } = useFetch('/api/users');
+
+  if (loading) return &lt;div&gt;Yükleniyor...&lt;/div&gt;;
+  if (error) return &lt;div&gt;Hata: {error}&lt;/div&gt;;
+
+  return (
+    &lt;ul&gt;
+      {users?.map(user =&gt; (
+        &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+                        </section>
+
+                        <section id="best-practices">
+                            <h2>✅ Best Practices</h2>
+                            
+                            <h3>1. Hook Kuralları</h3>
+                            <div class="rules-box">
+                                <ul>
+                                    <li>Hook'ları sadece React function'ları içinde çağırın</li>
+                                    <li>Hook'ları döngü, koşul veya nested function içinde çağırmayın</li>
+                                    <li>Hook'ları her zaman component'in en üstünde kullanın</li>
+                                </ul>
+                            </div>
+
+                            <h3>2. Performance Optimizasyonu</h3>
+                            <pre><code class="language-javascript">// useMemo ile expensive hesaplamaları cache'le
+const expensiveValue = useMemo(() =&gt; {
+  return data.filter(item =&gt; item.active)
+             .map(item =&gt; ({ ...item, processed: true }));
+}, [data]);
+
+// useCallback ile function reference'ları stable tut
+const handleClick = useCallback((id) =&gt; {
+  onItemClick(id);
+}, [onItemClick]);</code></pre>
+
+                            <h3>3. Error Handling</h3>
+                            <pre><code class="language-javascript">function useAsyncOperation() {
+  const [state, setState] = useState({
+    data: null,
+    loading: false,
+    error: null
+  });
+
+  const execute = useCallback(async (operation) =&gt; {
+    setState(prev =&gt; ({ ...prev, loading: true, error: null }));
+    
+    try {
+      const result = await operation();
+      setState({ data: result, loading: false, error: null });
+      return result;
+    } catch (error) {
+      setState({ data: null, loading: false, error });
+      throw error;
+    }
+  }, []);
+
+  return { ...state, execute };
+}</code></pre>
+
+                            <h3>4. Testing</h3>
+                            <pre><code class="language-javascript">// Custom hook test
+import { renderHook, act } from '@testing-library/react';
+import { useCounter } from './useCounter';
+
+test('should increment counter', () =&gt; {
+  const { result } = renderHook(() =&gt; useCounter());
+  
+  act(() =&gt; {
+    result.current.increment();
+  });
+  
+  expect(result.current.count).toBe(1);
+});</code></pre>
+                        </section>
+
+                        <section id="sonuc">
+                            <h2>🎯 Sonuç</h2>
+                            <p>
+                                React Hooks, modern React development'in vazgeçilmez parçalarıdır. Bu rehberde gördüğümüz hook'lar ve best practice'ler ile daha temiz, daha maintainable ve daha performanslı React uygulamaları geliştirebilirsiniz.
+                            </p>
+                            
+                            <div class="conclusion-box">
+                                <h4>📚 Daha Fazla Öğrenmek İçin:</h4>
+                                <ul>
+                                    <li><a href="https://react.dev/reference/react" target="_blank">React Resmi Dokümantasyonu</a></li>
+                                    <li><a href="../javascript-ipuclari-2024/">JavaScript İpuçları 2024</a></li>
+                                    <li><a href="../react-context-api/">React Context API Rehberi</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+                </div>
+
+                <!-- Article Footer -->
+                <footer class="article-footer">
+                    <div class="author-card">
+                        <img src="../../images/pp.jpg" alt="Berat Efe Karabaş" class="author-image">
+                        <div class="author-details">
+                            <h4>Berat Efe Karabaş</h4>
+                            <p>Full Stack Developer & Software Engineer</p>
+                            <p>Modern web teknolojileri ile kullanıcı deneyimi odaklı çözümler geliştiriyorum.</p>
+                            <div class="author-links">
+                                <a href="../../#contact" class="btn">İletişime Geç</a>
+                                <a href="https://github.com/efekrbs" target="_blank" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="share-section">
+                        <h4>Bu yazıyı paylaş:</h4>
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn twitter" onclick="shareOnTwitter()">Twitter</a>
+                            <a href="#" class="share-btn linkedin" onclick="shareOnLinkedIn()">LinkedIn</a>
+                            <a href="#" class="share-btn copy" onclick="copyLink()">Link Kopyala</a>
+                        </div>
+                    </div>
+                </footer>
+
+                <!-- Related Posts -->
+                <section class="related-posts">
+                    <h3>İlgili Yazılar</h3>
+                    <div class="related-grid">
+                        <a href="../javascript-ipuclari-2024/" class="related-card">
+                            <img src="https://via.placeholder.com/200x120/f39c12/ffffff?text=JS+Tips" alt="JavaScript İpuçları">
+                            <div>
+                                <h4>JavaScript İpuçları 2024</h4>
+                                <p>Modern JavaScript'te bilmeniz gereken pratik ipuçları</p>
+                            </div>
+                        </a>
+                        <a href="../react-context-api/" class="related-card">
+                            <img src="https://via.placeholder.com/200x120/34495e/ffffff?text=Context+API" alt="React Context API">
+                            <div>
+                                <h4>React Context API ile State Management</h4>
+                                <p>Global state yönetimi için Context API kullanımı</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Yukarı çık">↑</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const newTheme = theme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // Table of Contents
+        document.querySelectorAll('.table-of-contents a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Share Functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('React Hooks: Kapsamlı Rehber ve Best Practices');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link kopyalandı!');
+            });
+        }
+
+        // Reading Progress
+        const progressBar = document.createElement('div');
+        progressBar.style.position = 'fixed';
+        progressBar.style.top = '0';
+        progressBar.style.left = '0';
+        progressBar.style.width = '0%';
+        progressBar.style.height = '3px';
+        progressBar.style.background = 'linear-gradient(90deg, var(--accent-blue), var(--accent-purple))';
+        progressBar.style.zIndex = '10001';
+        progressBar.style.transition = 'width 0.1s ease';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const winHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset;
+            const scrolled = (scrollTop / (docHeight - winHeight)) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>
