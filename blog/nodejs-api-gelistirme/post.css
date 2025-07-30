@@ -1,0 +1,149 @@
+/* Post Specific Styles - Node.js API Development */
+
+/* Import base post styles */
+@import url('../react-hooks-rehberi/post.css');
+
+/* Custom enhancements for Node.js API post */
+.code-tip {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(56, 142, 60, 0.1));
+    border-left: 4px solid #4caf50;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.code-tip h4 {
+    color: #4caf50;
+    margin-bottom: 1rem;
+}
+
+/* Node.js specific code blocks */
+.article-body pre[class*="language-javascript"] {
+    background: #1e1e1e;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    position: relative;
+}
+
+.article-body pre[class*="language-javascript"]::before {
+    content: 'Node.js';
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 0.7rem;
+    color: #4caf50;
+    background: rgba(76, 175, 80, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.article-body pre[class*="language-json"]::before {
+    content: 'JSON';
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+.article-body pre[class*="language-dockerfile"]::before {
+    content: 'Docker';
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+}
+
+/* API endpoint styling */
+.api-endpoint {
+    background: linear-gradient(135deg, rgba(103, 58, 183, 0.1), rgba(81, 45, 168, 0.1));
+    border-left: 4px solid #673ab7;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+}
+
+.api-endpoint .method {
+    background: #673ab7;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.api-endpoint .endpoint {
+    font-weight: bold;
+}
+
+/* Security tip styling */
+.security-tip {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(245, 124, 0, 0.1));
+    border-left: 4px solid #ff9800;
+}
+
+.security-tip h4 {
+    color: #ff9800;
+}
+
+/* Performance tip styling */
+.performance-tip {
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(0, 172, 193, 0.1));
+    border-left: 4px solid #00bcd4;
+}
+
+.performance-tip h4 {
+    color: #00bcd4;
+}
+
+/* Warning tip styling */
+.warning-tip {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.1), rgba(211, 47, 47, 0.1));
+    border-left: 4px solid #f44336;
+}
+
+.warning-tip h4 {
+    color: #f44336;
+}
+
+/* Modern tip styling */
+.modern-tip {
+    background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(123, 31, 162, 0.1));
+    border-left: 4px solid #9c27b0;
+}
+
+.modern-tip h4 {
+    color: #9c27b0;
+}
+
+/* Directory structure styling */
+.article-body pre:has(code:contains("src/")) {
+    background: #0d1117;
+    border: 1px solid #30363d;
+}
+
+/* File structure icons */
+.file-tree {
+    font-family: 'Courier New', monospace;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #28a745;
+    margin: 1rem 0;
+}
+
+[data-theme="dark"] .file-tree {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .article-body pre[class*="language-"]::before {
+        display: none;
+    }
+    
+    .code-tip {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    
+    .api-endpoint {
+        padding: 0.8rem;
+    }
+}

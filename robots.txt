@@ -4,13 +4,25 @@ Allow: /
 # Sitemap
 Sitemap: https://efekrbs.github.io/sitemap.xml
 
-# Disallow certain file types
-Disallow: *.pdf$
-Disallow: /assets/
+# Crawl delay for better server performance
+Crawl-delay: 1
 
-# Allow important pages
+# Disallow certain files for better performance
+Disallow: /assets/temp/
+Disallow: /images/temp/
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Allow important resources
+Allow: /manifest.json
+Allow: /images/
+Allow: /blog/
 Allow: /index.html
 Allow: /
 
-# Crawl delay (optional)
-Crawl-delay: 1
+# Block specific bad bots (if needed)
+# User-agent: BadBot
+# Disallow: /
+
+# Preferred domain
+Host: https://efekrbs.github.io

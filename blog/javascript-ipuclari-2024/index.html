@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript İpuçları 2024: Modern JS Teknikleri | Berat Efe Karabaş</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Modern JavaScript'te bilmeniz gereken 15 pratik ipucu ve trick. ES6+ özellikleri, array methods, async/await ve daha fazlası.">
+    <meta name="keywords" content="javascript tips, es6, array methods, async await, modern javascript, js tricks, javascript 2024">
+    <meta name="author" content="Berat Efe Karabaş">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="JavaScript İpuçları 2024: Modern JS Teknikleri">
+    <meta property="og:description" content="Modern JavaScript'te bilmeniz gereken 15 pratik ipucu ve trick.">
+    <meta property="og:image" content="https://efekrbs.github.io/images/pp.jpg">
+    <meta property="og:url" content="https://efekrbs.github.io/blog/javascript-ipuclari-2024/">
+    <meta property="og:type" content="article">
+    
+    <!-- Article Meta -->
+    <meta property="article:author" content="Berat Efe Karabaş">
+    <meta property="article:published_time" content="2024-01-22">
+    <meta property="article:tag" content="JavaScript">
+    <meta property="article:tag" content="Tips">
+    <meta property="article:tag" content="ES6">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../images/pp.jpg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="post.css">
+    
+    <!-- Code Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body class="loaded">
+    <!-- Navigation -->
+    <nav class="blog-nav">
+        <div class="nav-container">
+            <a href="../../" class="nav-logo">
+                <img src="../../images/pp.jpg" alt="Berat Efe Karabaş" class="nav-avatar">
+                <span>BEK</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../">Ana Sayfa</a>
+                <a href="../">Blog</a>
+                <a href="../../#contact">İletişim</a>
+                <button id="theme-toggle" class="theme-btn" aria-label="Tema Değiştir">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../">Blog</a> > <span>JavaScript İpuçları 2024</span>
+            </div>
+            
+            <h1 class="article-title">
+                JavaScript İpuçları 2024: Modern JS Teknikleri
+            </h1>
+            
+            <div class="article-meta">
+                <div class="author-info">
+                    <img src="../../images/pp.jpg" alt="Berat Efe Karabaş" class="author-avatar">
+                    <div>
+                        <span class="author-name">Berat Efe Karabaş</span>
+                        <span class="publish-date">22 Ocak 2024</span>
+                    </div>
+                </div>
+                <div class="article-stats">
+                    <span>⏱️ 5 dakika okuma</span>
+                    <span>👁️ 892 görüntüleme</span>
+                </div>
+            </div>
+            
+            <div class="article-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">ES6+</span>
+                <span class="tag">Tips</span>
+                <span class="tag">Modern JS</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <div class="container">
+            <div class="article-content">
+                <div class="article-image">
+                    <img src="https://via.placeholder.com/800x400/f39c12/ffffff?text=JavaScript+Tips+2024" alt="JavaScript İpuçları 2024">
+                </div>
+
+                <div class="content-wrapper">
+                    <aside class="table-of-contents">
+                        <h3>İçindekiler</h3>
+                        <ul>
+                            <li><a href="#giris">Giriş</a></li>
+                            <li><a href="#array-methods">Array Methods</a></li>
+                            <li><a href="#destructuring">Destructuring</a></li>
+                            <li><a href="#async-await">Async/Await</a></li>
+                            <li><a href="#optional-chaining">Optional Chaining</a></li>
+                            <li><a href="#template-literals">Template Literals</a></li>
+                            <li><a href="#modules">ES Modules</a></li>
+                            <li><a href="#sonuc">Sonuç</a></li>
+                        </ul>
+                    </aside>
+
+                    <article class="article-body">
+                        <section id="giris">
+                            <h2>🚀 Giriş</h2>
+                            <p>
+                                Modern JavaScript dünyası sürekli gelişiyor. ES6+ ile gelen yenilikler, kodlarımızı daha temiz, daha okunabilir ve daha performanslı hale getiriyor. Bu yazıda, 2024'te bilmeniz gereken en pratik JavaScript ipuçlarını paylaşacağım.
+                            </p>
+                            
+                            <div class="info-box">
+                                <h4>💡 Bu yazıda öğrenecekleriniz:</h4>
+                                <ul>
+                                    <li>Modern array methodları</li>
+                                    <li>Destructuring teknikleri</li>
+                                    <li>Async/await best practices</li>
+                                    <li>Optional chaining kullanımı</li>
+                                    <li>Template literals ipuçları</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section id="array-methods">
+                            <h2>📊 Modern Array Methods</h2>
+                            
+                            <h3>1. Array.from() ile Çeviriler</h3>
+                            <pre><code class="language-javascript">// NodeList'i array'e çevir
+const divs = Array.from(document.querySelectorAll('div'));
+
+// String'i array'e çevir
+const chars = Array.from('Hello'); // ['H', 'e', 'l', 'l', 'o']
+
+// Set'i array'e çevir
+const uniqueNumbers = Array.from(new Set([1, 2, 2, 3, 3, 4])); // [1, 2, 3, 4]
+
+// Mapping ile birlikte kullan
+const squares = Array.from({length: 5}, (_, i) => i * i); // [0, 1, 4, 9, 16]</code></pre>
+
+                            <h3>2. Array.flatMap() - Map ve Flat Birlikte</h3>
+                            <pre><code class="language-javascript">const users = [
+  {name: 'Ahmet', hobbies: ['football', 'reading']},
+  {name: 'Ayşe', hobbies: ['swimming', 'cooking', 'gaming']},
+  {name: 'Mehmet', hobbies: ['music']}
+];
+
+// Tüm hobileri tek array'de topla
+const allHobbies = users.flatMap(user => user.hobbies);
+// ['football', 'reading', 'swimming', 'cooking', 'gaming', 'music']
+
+// Aynı işlem map + flat ile (daha uzun)
+const allHobbiesOld = users.map(user => user.hobbies).flat();</code></pre>
+
+                            <h3>3. Array.groupBy() - ES2024 Yeniliği</h3>
+                            <pre><code class="language-javascript">const products = [
+  {name: 'Laptop', category: 'Electronics', price: 1000},
+  {name: 'Phone', category: 'Electronics', price: 500},
+  {name: 'Shirt', category: 'Clothing', price: 30},
+  {name: 'Jeans', category: 'Clothing', price: 80}
+];
+
+// Kategoriye göre grupla
+const groupedByCategory = Object.groupBy(products, product => product.category);
+/*
+{
+  Electronics: [{name: 'Laptop', ...}, {name: 'Phone', ...}],
+  Clothing: [{name: 'Shirt', ...}, {name: 'Jeans', ...}]
+}
+*/
+
+// Fiyata göre grupla
+const groupedByPrice = Object.groupBy(products, product => 
+  product.price > 100 ? 'expensive' : 'affordable'
+);</code></pre>
+                        </section>
+
+                        <section id="destructuring">
+                            <h2>🔧 Destructuring İleri Teknikleri</h2>
+                            
+                            <h3>1. İç İçe Destructuring</h3>
+                            <pre><code class="language-javascript">const user = {
+  name: 'Ahmet',
+  address: {
+    city: 'Istanbul',
+    country: 'Turkey',
+    coordinates: {
+      lat: 41.0082,
+      lng: 28.9784
+    }
+  },
+  preferences: {
+    theme: 'dark',
+    language: 'tr'
+  }
+};
+
+// İç içe destructuring
+const {
+  name,
+  address: {
+    city,
+    coordinates: { lat, lng }
+  },
+  preferences: { theme = 'light' } = {}
+} = user;
+
+console.log(name, city, lat, lng, theme); // Ahmet Istanbul 41.0082 28.9784 dark</code></pre>
+
+                            <h3>2. Array Destructuring ile Swap</h3>
+                            <pre><code class="language-javascript">let a = 1, b = 2;
+
+// Klasik yöntem (geçici değişken)
+let temp = a;
+a = b;
+b = temp;
+
+// Modern yöntem (destructuring)
+[a, b] = [b, a];
+
+// Birden fazla değişken swap
+let x = 1, y = 2, z = 3;
+[x, y, z] = [z, x, y]; // x=3, y=1, z=2</code></pre>
+
+                            <h3>3. Function Parameters Destructuring</h3>
+                            <pre><code class="language-javascript">// Klasik yöntem
+function createUser(name, age, email, city, country) {
+  // Parametre sırası önemli, karışık
+}
+
+// Modern yöntem - destructuring parameters
+function createUser({ name, age, email, city = 'Istanbul', country = 'Turkey' }) {
+  return {
+    name,
+    age,
+    email,
+    location: `${city}, ${country}`,
+    createdAt: new Date()
+  };
+}
+
+// Kullanım - sıra önemli değil
+const user = createUser({
+  email: 'ahmet@example.com',
+  name: 'Ahmet',
+  age: 25
+}); // city ve country default değerleri alır</code></pre>
+                        </section>
+
+                        <section id="async-await">
+                            <h2>⚡ Async/Await Best Practices</h2>
+                            
+                            <h3>1. Promise.allSettled() ile Güvenli Paralel İşlemler</h3>
+                            <pre><code class="language-javascript">const urls = [
+  'https://api1.example.com/data',
+  'https://api2.example.com/data',
+  'https://api3.example.com/data'  // Bu başarısız olabilir
+];
+
+// Promise.all - bir tanesi fail olursa hepsi fail
+try {
+  const results = await Promise.all(
+    urls.map(url => fetch(url).then(res => res.json()))
+  );
+} catch (error) {
+  // Bir API fail olursa buraya düşer
+}
+
+// Promise.allSettled - her birinin sonucunu al
+const results = await Promise.allSettled(
+  urls.map(url => fetch(url).then(res => res.json()))
+);
+
+// Başarılı olanları filtrele
+const successfulResults = results
+  .filter(result => result.status === 'fulfilled')
+  .map(result => result.value);
+
+// Başarısız olanları logla
+const failedResults = results
+  .filter(result => result.status === 'rejected')
+  .map(result => result.reason);</code></pre>
+
+                            <h3>2. Async/Await ile Error Handling</h3>
+                            <pre><code class="language-javascript">// Helper function - try/catch wrapper
+const safeAsync = async (asyncFn) => {
+  try {
+    const result = await asyncFn();
+    return [null, result];
+  } catch (error) {
+    return [error, null];
+  }
+};
+
+// Kullanım
+const fetchUserData = async (userId) => {
+  const [error, userData] = await safeAsync(() => 
+    fetch(`/api/users/${userId}`).then(res => res.json())
+  );
+  
+  if (error) {
+    console.error('User fetch failed:', error);
+    return null;
+  }
+  
+  return userData;
+};
+
+// Birden fazla async işlem
+const loadUserProfile = async (userId) => {
+  const [userError, user] = await safeAsync(() => fetchUser(userId));
+  const [postsError, posts] = await safeAsync(() => fetchUserPosts(userId));
+  
+  return {
+    user: userError ? null : user,
+    posts: postsError ? [] : posts,
+    errors: {
+      user: userError,
+      posts: postsError
+    }
+  };
+};</code></pre>
+
+                            <h3>3. AbortController ile İptal Edilebilir Requests</h3>
+                            <pre><code class="language-javascript">class ApiService {
+  constructor() {
+    this.controller = null;
+  }
+  
+  async fetchData(url, timeout = 5000) {
+    // Önceki request'i iptal et
+    if (this.controller) {
+      this.controller.abort();
+    }
+    
+    this.controller = new AbortController();
+    
+    // Timeout ayarla
+    const timeoutId = setTimeout(() => {
+      this.controller.abort();
+    }, timeout);
+    
+    try {
+      const response = await fetch(url, {
+        signal: this.controller.signal
+      });
+      
+      clearTimeout(timeoutId);
+      return await response.json();
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        console.log('Request cancelled or timed out');
+      }
+      throw error;
+    }
+  }
+  
+  cancel() {
+    if (this.controller) {
+      this.controller.abort();
+    }
+  }
+}
+
+// Kullanım
+const api = new ApiService();
+
+// Request gönder
+api.fetchData('/api/data').then(data => console.log(data));
+
+// 2 saniye sonra iptal et
+setTimeout(() => api.cancel(), 2000);</code></pre>
+                        </section>
+
+                        <section id="optional-chaining">
+                            <h2>🔗 Optional Chaining ve Nullish Coalescing</h2>
+                            
+                            <h3>1. Güvenli Property Access</h3>
+                            <pre><code class="language-javascript">const user = {
+  name: 'Ahmet',
+  address: {
+    city: 'Istanbul'
+    // country property yok
+  }
+};
+
+// Klasik yöntem - uzun ve karışık
+if (user && user.address && user.address.country) {
+  console.log(user.address.country);
+}
+
+// Modern yöntem - optional chaining
+console.log(user.address?.country); // undefined
+
+// Array elements için
+const users = [
+  { name: 'Ahmet', posts: [{ title: 'Post 1' }] },
+  { name: 'Ayşe' } // posts property yok
+];
+
+console.log(users[0]?.posts?.[0]?.title); // "Post 1"
+console.log(users[1]?.posts?.[0]?.title); // undefined
+
+// Function calls için
+const api = {
+  user: {
+    getName: () => 'Ahmet'
+    // getAge function yok
+  }
+};
+
+console.log(api.user?.getName?.()); // "Ahmet"
+console.log(api.user?.getAge?.()); // undefined</code></pre>
+
+                            <h3>2. Nullish Coalescing (??) ile Default Values</h3>
+                            <pre><code class="language-javascript">// Fark: || vs ??
+const config = {
+  theme: '',
+  count: 0,
+  enabled: false,
+  apiUrl: null
+};
+
+// || operatörü - falsy değerler için default
+console.log(config.theme || 'light');    // 'light' (empty string falsy)
+console.log(config.count || 10);         // 10 (0 falsy)
+console.log(config.enabled || true);     // true (false falsy)
+
+// ?? operatörü - sadece null/undefined için default
+console.log(config.theme ?? 'light');    // '' (empty string korunur)
+console.log(config.count ?? 10);         // 0 (0 korunur)
+console.log(config.enabled ?? true);     // false (false korunur)
+console.log(config.apiUrl ?? '/api');    // '/api' (null için default)
+
+// Gerçek kullanım örneği
+function createUser(userData) {
+  return {
+    name: userData.name ?? 'Anonymous',
+    age: userData.age ?? 0,
+    preferences: {
+      theme: userData.preferences?.theme ?? 'light',
+      notifications: userData.preferences?.notifications ?? true
+    }
+  };
+}</code></pre>
+                        </section>
+
+                        <section id="template-literals">
+                            <h2>📝 Template Literals İleri Kullanım</h2>
+                            
+                            <h3>1. Tagged Template Literals</h3>
+                            <pre><code class="language-javascript">// HTML template function
+function html(strings, ...values) {
+  return strings.reduce((result, string, i) => {
+    const value = values[i] ? escapeHtml(values[i]) : '';
+    return result + string + value;
+  }, '');
+}
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// Kullanım - XSS güvenli HTML
+const userName = '<script>alert("XSS")</script>';
+const userAge = 25;
+
+const userCard = html`
+  <div class="user-card">
+    <h3>${userName}</h3>
+    <p>Age: ${userAge}</p>
+  </div>
+`;
+// Çıktı: &lt;script&gt;alert("XSS")&lt;/script&gt; şeklinde güvenli
+
+// CSS template function
+function css(strings, ...values) {
+  return strings.reduce((result, string, i) => {
+    return result + string + (values[i] || '');
+  }, '');
+}
+
+const primaryColor = '#3498db';
+const borderRadius = '8px';
+
+const buttonStyles = css`
+  .button {
+    background-color: ${primaryColor};
+    border-radius: ${borderRadius};
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: ${primaryColor}dd;
+  }
+`;</code></pre>
+
+                            <h3>2. Multi-line Template Kullanımı</h3>
+                            <pre><code class="language-javascript">// SQL query builder
+function buildQuery({table, select = '*', where = {}, orderBy, limit}) {
+  const whereClause = Object.entries(where)
+    .map(([key, value]) => `${key} = '${value}'`)
+    .join(' AND ');
+    
+  return `
+    SELECT ${select}
+    FROM ${table}
+    ${whereClause ? `WHERE ${whereClause}` : ''}
+    ${orderBy ? `ORDER BY ${orderBy}` : ''}
+    ${limit ? `LIMIT ${limit}` : ''}
+  `.trim().replace(/\s+/g, ' ');
+}
+
+// Kullanım
+const query = buildQuery({
+  table: 'users',
+  select: 'name, email, age',
+  where: {
+    active: true,
+    role: 'admin'
+  },
+  orderBy: 'created_at DESC',
+  limit: 10
+});
+
+// Çıktı: "SELECT name, email, age FROM users WHERE active = 'true' AND role = 'admin' ORDER BY created_at DESC LIMIT 10"</code></pre>
+                        </section>
+
+                        <section id="modules">
+                            <h2>📦 ES Modules Best Practices</h2>
+                            
+                            <h3>1. Dynamic Imports ile Lazy Loading</h3>
+                            <pre><code class="language-javascript">// utils.js
+export const formatDate = (date) => {
+  return new Intl.DateTimeFormat('tr-TR').format(date);
+};
+
+export const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+// main.js - Dynamic import
+async function loadUtils() {
+  const { formatDate, debounce } = await import('./utils.js');
+  return { formatDate, debounce };
+}
+
+// Conditional loading
+async function handleUserAction(action) {
+  if (action === 'export') {
+    const { exportToExcel } = await import('./excel-utils.js');
+    exportToExcel(data);
+  } else if (action === 'chart') {
+    const { createChart } = await import('./chart-utils.js');
+    createChart(data);
+  }
+}
+
+// Route-based loading (SPA)
+const routes = {
+  '/dashboard': () => import('./pages/dashboard.js'),
+  '/profile': () => import('./pages/profile.js'),
+  '/settings': () => import('./pages/settings.js')
+};
+
+async function navigateTo(path) {
+  const pageModule = await routes[path]();
+  pageModule.render();
+}</code></pre>
+
+                            <h3>2. Module Pattern ile State Management</h3>
+                            <pre><code class="language-javascript">// store.js - Simple state management
+class Store {
+  constructor(initialState = {}) {
+    this.state = initialState;
+    this.listeners = [];
+  }
+  
+  getState() {
+    return { ...this.state };
+  }
+  
+  setState(newState) {
+    this.state = { ...this.state, ...newState };
+    this.listeners.forEach(listener => listener(this.state));
+  }
+  
+  subscribe(listener) {
+    this.listeners.push(listener);
+    return () => {
+      this.listeners = this.listeners.filter(l => l !== listener);
+    };
+  }
+}
+
+// User store
+export const userStore = new Store({
+  user: null,
+  isLoggedIn: false,
+  theme: 'light'
+});
+
+// Theme store
+export const themeStore = new Store({
+  theme: localStorage.getItem('theme') || 'light',
+  colors: {
+    primary: '#3498db',
+    secondary: '#2ecc71'
+  }
+});
+
+// main.js - Store kullanımı
+import { userStore, themeStore } from './store.js';
+
+// State değişikliklerini dinle
+const unsubscribeUser = userStore.subscribe((state) => {
+  console.log('User state changed:', state);
+  updateUI(state);
+});
+
+// State güncelle
+userStore.setState({
+  user: { name: 'Ahmet', email: 'ahmet@example.com' },
+  isLoggedIn: true
+});
+
+// Theme değiştir
+themeStore.setState({ theme: 'dark' });</code></pre>
+                        </section>
+
+                        <section id="sonuc">
+                            <h2>🎯 Sonuç</h2>
+                            <p>
+                                Modern JavaScript'in sunduğu bu özellikler, kodlarımızı daha temiz, daha okunabilir ve daha performanslı hale getirir. Bu ipuçlarını projelerinizde uygulayarak, 2024'te daha etkili JavaScript geliştiricisi olabilirsiniz.
+                            </p>
+                            
+                            <div class="conclusion-box">
+                                <h4>📚 Daha Fazla Öğrenmek İçin:</h4>
+                                <ul>
+                                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN JavaScript Dokümantasyonu</a></li>
+                                    <li><a href="../react-hooks-rehberi/">React Hooks Rehberi</a></li>
+                                    <li><a href="../nodejs-api-gelistirme/">Node.js API Geliştirme</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+                </div>
+
+                <!-- Article Footer -->
+                <footer class="article-footer">
+                    <div class="author-card">
+                        <img src="../../images/pp.jpg" alt="Berat Efe Karabaş" class="author-image">
+                        <div class="author-details">
+                            <h4>Berat Efe Karabaş</h4>
+                            <p>Full Stack Developer & Software Engineer</p>
+                            <p>Modern web teknolojileri ile kullanıcı deneyimi odaklı çözümler geliştiriyorum.</p>
+                            <div class="author-links">
+                                <a href="../../#contact" class="btn">İletişime Geç</a>
+                                <a href="https://github.com/efekrbs" target="_blank" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="share-section">
+                        <h4>Bu yazıyı paylaş:</h4>
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn twitter" onclick="shareOnTwitter()">Twitter</a>
+                            <a href="#" class="share-btn linkedin" onclick="shareOnLinkedIn()">LinkedIn</a>
+                            <a href="#" class="share-btn copy" onclick="copyLink()">Link Kopyala</a>
+                        </div>
+                    </div>
+                </footer>
+
+                <!-- Related Posts -->
+                <section class="related-posts">
+                    <h3>İlgili Yazılar</h3>
+                    <div class="related-grid">
+                        <a href="../react-hooks-rehberi/" class="related-card">
+                            <img src="https://via.placeholder.com/200x120/3498db/ffffff?text=React+Hooks" alt="React Hooks">
+                            <div>
+                                <h4>React Hooks: Kapsamlı Rehber</h4>
+                                <p>useState, useEffect, useContext ve custom hooks rehberi</p>
+                            </div>
+                        </a>
+                        <a href="../nodejs-api-gelistirme/" class="related-card">
+                            <img src="https://via.placeholder.com/200x120/27ae60/ffffff?text=Node.js+API" alt="Node.js API">
+                            <div>
+                                <h4>Node.js ile RESTful API Geliştirme</h4>
+                                <p>Express.js ve MongoDB ile API geliştirme rehberi</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Yukarı çık">↑</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const newTheme = theme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // Table of Contents
+        document.querySelectorAll('.table-of-contents a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Share Functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('JavaScript İpuçları 2024: Modern JS Teknikleri');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link kopyalandı!');
+            });
+        }
+
+        // Reading Progress
+        const progressBar = document.createElement('div');
+        progressBar.style.position = 'fixed';
+        progressBar.style.top = '0';
+        progressBar.style.left = '0';
+        progressBar.style.width = '0%';
+        progressBar.style.height = '3px';
+        progressBar.style.background = 'linear-gradient(90deg, var(--accent-blue), var(--accent-purple))';
+        progressBar.style.zIndex = '10001';
+        progressBar.style.transition = 'width 0.1s ease';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const winHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset;
+            const scrolled = (scrollTop / (docHeight - winHeight)) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>

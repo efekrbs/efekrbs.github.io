@@ -1,0 +1,65 @@
+/* Post Specific Styles - JavaScript Tips */
+
+/* Import base post styles */
+@import url('../react-hooks-rehberi/post.css');
+
+/* Custom enhancements for JS Tips post */
+.code-tip {
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.1), rgba(230, 126, 34, 0.1));
+    border-left: 4px solid #f1c40f;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.code-tip h4 {
+    color: #f39c12;
+    margin-bottom: 1rem;
+}
+
+/* Enhanced code blocks for JS */
+.article-body pre[class*="language-javascript"] {
+    background: #1e1e1e;
+    border: 1px solid rgba(52, 152, 219, 0.3);
+    position: relative;
+}
+
+.article-body pre[class*="language-javascript"]::before {
+    content: 'JavaScript';
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 0.7rem;
+    color: #f39c12;
+    background: rgba(243, 156, 18, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Tip boxes specific styling */
+.performance-tip {
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(39, 174, 96, 0.1));
+    border-left: 4px solid #2ecc71;
+}
+
+.warning-tip {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
+    border-left: 4px solid #e74c3c;
+}
+
+.modern-tip {
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(142, 68, 173, 0.1));
+    border-left: 4px solid #9b59b6;
+}
+
+/* Responsive enhancements for mobile */
+@media (max-width: 768px) {
+    .article-body pre[class*="language-javascript"]::before {
+        display: none;
+    }
+    
+    .code-tip {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+}
