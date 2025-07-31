@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berat Efe Karabaş - Full Stack Web Geliştirici | Portfolio & Blog</title>
     <!-- Enhanced SEO Meta Tags -->
     <meta name="description" content="Berat Efe Karabaş - Full Stack Web Geliştirici ve Yazılım Mühendisi. React, Node.js, JavaScript ile modern web uygulamaları geliştiriyorum. Blog yazıları ve projelerim için portfolyo siteme hoş geldiniz.">
     <meta name="keywords" content="berat efe karabaş, web developer, full stack developer, react developer, node.js developer, javascript, typescript, frontend, backend, yazılım mühendisi, web tasarım, responsive design, SEO, PWA">
@@ -17,9 +18,9 @@
     <!-- Enhanced Open Graph Meta Tags -->
     <meta property="og:title" content="Berat Efe Karabaş - Full Stack Web Geliştirici | Portfolio & Blog">
     <meta property="og:description" content="Modern web teknolojileri ile kullanıcı dostu çözümler üretiyorum. React, Node.js, JavaScript projelerim ve blog yazılarım için portfolio siteme hoş geldiniz.">
-    <meta property="og:image" content="https://efekrbs.github.io/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="https://efekrbs.github.io/images/pp.jpg">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
     <meta property="og:image:alt" content="Berat Efe Karabaş - Web Developer Portfolio">
     <meta property="og:url" content="https://efekrbs.github.io">
     <meta property="og:type" content="website">
@@ -32,16 +33,17 @@
     <meta name="twitter:creator" content="@beratefe_dev">
     <meta name="twitter:title" content="Berat Efe Karabaş - Full Stack Web Geliştirici">
     <meta name="twitter:description" content="Modern web teknolojileri ile kullanıcı dostu çözümler üretiyorum. React, Node.js, JavaScript projelerim ve blog yazılarım.">
-    <meta name="twitter:image" content="https://efekrbs.github.io/images/og-image.jpg">
+    <meta name="twitter:image" content="https://efekrbs.github.io/images/pp.jpg">
     <meta name="twitter:image:alt" content="Berat Efe Karabaş Portfolio Website">
     
     <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+    <link rel="icon" type="image/jpeg" href="images/pp.jpg">
+    <link rel="apple-touch-icon" href="images/pp.jpg">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png"> -->
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -72,8 +74,8 @@
     <link rel="alternate" hreflang="en" href="https://efekrbs.github.io/en/">
     <link rel="alternate" hreflang="x-default" href="https://efekrbs.github.io/">
     
-    <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title="BEK Blog RSS Feed" href="https://efekrbs.github.io/blog/rss.xml">
+    <!-- RSS Feed (RSS feed oluşturulduğunda aktifleştirin) -->
+    <!-- <link rel="alternate" type="application/rss+xml" title="BEK Blog RSS Feed" href="https://efekrbs.github.io/blog/rss.xml"> -->
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -119,28 +121,26 @@
     </script>
     
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
+        gtag('config', 'YOUR_GA_MEASUREMENT_ID', {
             page_title: 'BEK Portfolio - Ana Sayfa',
             page_location: window.location.href,
             send_page_view: true
         });
-    </script>
+    </script> -->
     
     <!-- Microsoft Clarity -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
-    </script>
-    
-    <title>Berat Efe Karabaş - Full Stack Web Geliştirici | Portfolio & Blog</title>
+        })(window, document, "clarity", "script", "YOUR_CLARITY_PROJECT_ID");
+    </script> -->
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
@@ -910,18 +910,34 @@
                 }
             });
 
-            // Simulate form submission (replace with actual backend)
+            // Simulate form submission (gerçek backend entegrasyonu için aşağıdaki seçeneklerden birini kullanın)
             async function simulateFormSubmission(data) {
                 return new Promise((resolve) => {
                     setTimeout(() => {
-                        // Simulate success/failure
-                        const success = Math.random() > 0.1; // 90% success rate
+                        // Demo başarı oranı %90 (test amaçlı)
+                        const success = Math.random() > 0.1;
                         resolve({ success });
                     }, 2000);
                 });
                 
-                // Example of actual form submission:
+                // GERÇEK FORM GÖNDERİM SEÇENEKLERİ:
                 /*
+                // SEÇENEK 1: Formspree.io kullanımı
+                const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: new FormData(document.getElementById('contact-form'))
+                });
+                return { success: response.ok };
+                
+                // SEÇENEK 2: EmailJS kullanımı
+                return emailjs.send('service_id', 'template_id', data)
+                    .then(() => ({ success: true }))
+                    .catch(() => ({ success: false }));
+                
+                // SEÇENEK 3: Kendi backend API'niz
                 const response = await fetch('/api/contact', {
                     method: 'POST',
                     headers: {

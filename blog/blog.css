@@ -1,5 +1,68 @@
 /* Blog Specific Styles */
 
+/* CSS Variables for Blog */
+:root {
+    /* Code copy button styles */
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+pre:hover .copy-btn {
+    opacity: 1;
+}
+
+.copy-btn:hover {
+    background: var(--accent-purple, #8b5cf6);
+}
+
+/* Reading progress bar */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+.reading-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-purple, #8b5cf6));
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Responsive improvements */
+    --blog-bg: #0f172a;
+    --blog-card-bg: rgba(15, 23, 42, 0.6);
+    --blog-nav-bg: rgba(15, 23, 42, 0.95);
+    --text-light: #e2e8f0;
+    --text-muted: #cbd5e1;
+    --accent-color: #3b82f6;
+    --border-color: rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="light"] {
+    --blog-bg: #f8fafc;
+    --blog-card-bg: rgba(255, 255, 255, 0.8);
+    --blog-nav-bg: rgba(255, 255, 255, 0.95);
+    --text-light: #1e293b;
+    --text-muted: #475569;
+    --border-color: rgba(59, 130, 246, 0.3);
+}
+
 /* Import base styles from parent */
 @import url('../styles.css');
 
@@ -9,16 +72,16 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(15, 23, 42, 0.95);
+    background: var(--blog-nav-bg);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border-color);
     z-index: 1000;
     padding: 1rem 0;
 }
 
 [data-theme="light"] .blog-nav {
-    background: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--blog-nav-bg);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .nav-container {
