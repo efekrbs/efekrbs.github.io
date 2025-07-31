@@ -1518,7 +1518,26 @@ footer {
     transition: transform 0.1s ease;
 }
 
-/* Custom Cursor - Kaldırıldı */
+/* Normal Cursor Styles */
+body, * {
+    cursor: auto !important;
+}
+
+a, button, input[type="submit"], input[type="button"], 
+.btn, .social-link, .theme-btn, .skill-item, 
+.project-card, .blog-card, .contact-item {
+    cursor: pointer !important;
+}
+
+input, textarea, select {
+    cursor: text !important;
+}
+
+/* Hover durumları için cursor */
+.btn:hover, .social-link:hover, .theme-btn:hover,
+.skill-item:hover, .project-card:hover, .blog-card:hover {
+    cursor: pointer !important;
+}
 
 /* Ripple Effect */
 .ripple {

@@ -22,19 +22,25 @@
     --border-color: rgba(59, 130, 246, 0.3);
 }
 
-/* Mouse cursor fix for blog pages */
-body, * {
-    cursor: auto;
+/* Mouse cursor fix for blog pages - Enhanced */
+body, *, *::before, *::after {
+    cursor: auto !important;
 }
 
 a, button, input[type="submit"], input[type="button"], 
 .btn, .nav-link, .post-card, .share-btn, .copy-btn,
-.theme-btn, .nav-logo {
+.theme-btn, .nav-logo, .read-more, .project-link,
+.social-link, .blog-card, h3 a, .pagination a {
     cursor: pointer !important;
 }
 
 input, textarea, select {
-    cursor: text;
+    cursor: text !important;
+}
+
+/* Hover states with cursor */
+a:hover, button:hover, .btn:hover {
+    cursor: pointer !important;
 }
 
 /* Import base styles from parent */

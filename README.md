@@ -7,7 +7,6 @@ Modern, interactive ve responsive kişisel portfolio websitesi.
 ### 🎨 Görsel Özellikler
 - **Dark/Light Mode**: Otomatik tema değiştirme
 - **Glassmorphism Design**: Modern cam efektli tasarım
-- **Custom Cursor**: Özel cursor animasyonları
 - **Typing Animation**: Dinamik yazı efektleri
 - **Floating Elements**: Arka plan animasyonları
 - **Glow Effects**: Parıltı efektleri
@@ -84,12 +83,6 @@ efekrbs.github.io/
 - Smooth typing efekti
 - Tekrarlanan animasyon döngüsü
 
-### Custom Cursor
-- Desktop için özel cursor
-- Hover efektleri
-- Smooth takip animasyonu
-- Mobile'da otomatik devre dışı
-
 ### Contact Form
 - Form validasyonu
 - Visual feedback
@@ -128,10 +121,10 @@ Bu proje MIT lisansı ile lisanslanmıştır. Detaylar için `LICENSE` dosyasın
 ### v2.0.0 (2024)
 - ✅ Modern tasarım sistemine geçiş
 - ✅ Dark/Light mode eklendi
-- ✅ Custom cursor animasyonları
 - ✅ Performance optimizasyonları
 - ✅ SEO iyileştirmeleri
 - ✅ Accessibility desteği
+- ✅ Normal cursor kullanımı
 
 ### v1.0.0 (2024)
 - ✅ İlk versiyon
