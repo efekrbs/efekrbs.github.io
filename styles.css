@@ -159,13 +159,43 @@ header::before {
     height: 50px;
     font-size: 20px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    z-index: -1;
 }
 
 .theme-btn:hover {
-    transform: scale(1.1) rotate(180deg);
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    transform: scale(1.05) rotate(15deg);
+    border-color: var(--accent-blue);
+    color: white;
+    box-shadow: 
+        0 8px 25px rgba(59, 130, 246, 0.25),
+        0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.theme-btn:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.theme-btn:active {
+    transform: scale(0.95) rotate(15deg);
+    transition: transform 0.1s ease;
 }
 
 /* Social Links */
@@ -187,16 +217,43 @@ header::before {
     border-radius: 50%;
     color: var(--primary-text);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    z-index: -1;
 }
 
 .social-link:hover {
-    transform: translateY(-5px) scale(1.1);
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    transform: translateY(-3px) scale(1.05);
     border-color: var(--accent-blue);
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
     color: white;
+    box-shadow: 
+        0 10px 30px rgba(59, 130, 246, 0.3),
+        0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.social-link:hover::before {
+    width: 120%;
+    height: 120%;
+}
+
+.social-link:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: transform 0.1s ease;
 }
 
 .profile-img {
@@ -329,10 +386,13 @@ h1 {
     padding: 30px 25px;
     border-radius: 15px;
     text-align: center;
-    transition: all 0.4s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
 }
 
 .skill-item::before {
@@ -343,21 +403,43 @@ h1 {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-    transition: left 0.5s ease;
+    transition: left 0.6s ease;
+}
+
+.skill-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .skill-item:hover::before {
     left: 100%;
 }
 
+.skill-item:hover::after {
+    opacity: 1;
+}
+
 .skill-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-    border-color: var(--accent-blue);
+    transform: translateY(-5px) scale(1.03);
+    border-color: rgba(59, 130, 246, 0.5);
     box-shadow: 
-        0 15px 30px rgba(59, 130, 246, 0.3),
-        0 0 0 1px rgba(59, 130, 246, 0.4);
+        0 12px 25px rgba(59, 130, 246, 0.2),
+        0 5px 10px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(59, 130, 246, 0.1);
     color: white;
+}
+
+.skill-item:active {
+    transform: translateY(-2px) scale(1.01);
+    transition: transform 0.1s ease;
 }
 
 .skill-icon {
@@ -424,14 +506,44 @@ h1 {
     border: 1px solid var(--border-color);
     border-radius: 15px;
     overflow: hidden;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: var(--accent-blue);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.15),
+        0 5px 15px rgba(59, 130, 246, 0.1),
+        0 0 0 1px rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:active {
+    transform: translateY(-2px) scale(1.01);
+    transition: transform 0.1s ease;
 }
 
 .project-image {
@@ -602,14 +714,44 @@ h1 {
     border: 1px solid var(--border-color);
     border-radius: 15px;
     padding: 25px;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(139, 92, 246, 0.03));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--accent-blue);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.15),
+        0 5px 10px rgba(59, 130, 246, 0.1),
+        0 0 0 1px rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.blog-card:hover::before {
+    opacity: 1;
+}
+
+.blog-card:active {
+    transform: translateY(-1px) scale(1.005);
+    transition: transform 0.1s ease;
 }
 
 .blog-date {
@@ -696,14 +838,17 @@ h1 {
     padding: 15px 35px;
     text-decoration: none;
     border-radius: 50px;
-    transition: all 0.4s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 10px;
     font-weight: 600;
     letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(59, 130, 246, 0.3);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    box-shadow: 
+        0 4px 15px rgba(59, 130, 246, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .btn::before {
@@ -714,20 +859,48 @@ h1 {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    transition: left 0.6s ease;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    z-index: 0;
 }
 
 .btn:hover::before {
     left: 100%;
 }
 
+.btn:hover::after {
+    width: 200%;
+    height: 200%;
+}
+
 .btn:hover {
-    transform: translateY(-3px) scale(1.05);
+    transform: translateY(-2px) scale(1.02);
     background: linear-gradient(135deg, #2563eb, #7c3aed);
     box-shadow: 
-        0 15px 40px rgba(59, 130, 246, 0.4),
-        0 0 0 1px rgba(59, 130, 246, 0.5);
-    border-color: rgba(59, 130, 246, 0.6);
+        0 8px 30px rgba(59, 130, 246, 0.4),
+        0 0 0 1px rgba(59, 130, 246, 0.3),
+        0 2px 10px rgba(0, 0, 0, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.btn:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 
+        0 2px 15px rgba(59, 130, 246, 0.3),
+        0 0 0 1px rgba(59, 130, 246, 0.3);
+    transition: all 0.1s ease;
 }
 
 /* Footer */
@@ -1238,8 +1411,25 @@ footer {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.contact-btn:hover::before {
+    left: 100%;
 }
 
 .email-btn {
@@ -1258,19 +1448,69 @@ footer {
 }
 
 .contact-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.email-btn:hover {
+    box-shadow: 
+        0 8px 20px rgba(239, 68, 68, 0.4),
+        0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+.whatsapp-btn:hover {
+    box-shadow: 
+        0 8px 20px rgba(34, 197, 94, 0.4),
+        0 2px 4px rgba(34, 197, 94, 0.2);
+}
+
+.linkedin-btn:hover {
+    box-shadow: 
+        0 8px 20px rgba(14, 165, 233, 0.4),
+        0 2px 4px rgba(14, 165, 233, 0.2);
+}
+
+.contact-btn:active {
+    transform: translateY(0) scale(1.01);
+    transition: transform 0.1s ease;
 }
 
 /* Button Styles - Güncellenmiş */
 .btn-secondary {
     background: linear-gradient(135deg, var(--secondary-bg), var(--tertiary-bg));
     border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-secondary:hover::before {
+    left: 100%;
 }
 
 .btn-secondary:hover {
     background: linear-gradient(135deg, var(--tertiary-bg), #475569);
-    transform: translateY(-3px) scale(1.05);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+.btn-secondary:active {
+    transform: translateY(0) scale(1);
+    transition: transform 0.1s ease;
 }
 
 /* Custom Cursor */
