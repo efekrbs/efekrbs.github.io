@@ -1,0 +1,272 @@
+/* Blog Specific Styles */
+
+/* CSS Variables for Blog */
+:root {
+    /* Blog specific colors */
+    --blog-bg: #0f172a;
+    --blog-card-bg: rgba(15, 23, 42, 0.6);
+    --blog-nav-bg: rgba(15, 23, 42, 0.95);
+    --text-light: #e2e8f0;
+    --text-muted: #cbd5e1;
+    --accent-color: #3b82f6;
+    --border-color: rgba(59, 130, 246, 0.2);
+    --accent-purple: #8b5cf6;
+}
+
+[data-theme="light"] {
+    --blog-bg: #f8fafc;
+    --blog-card-bg: rgba(255, 255, 255, 0.8);
+    --blog-nav-bg: rgba(255, 255, 255, 0.95);
+    --text-light: #1e293b;
+    --text-muted: #475569;
+    --border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Mouse cursor fix for blog pages */
+body, * {
+    cursor: auto;
+}
+
+a, button, input[type="submit"], input[type="button"], 
+.btn, .nav-link, .post-card, .share-btn, .copy-btn,
+.theme-btn, .nav-logo {
+    cursor: pointer !important;
+}
+
+input, textarea, select {
+    cursor: text;
+}
+
+/* Import base styles from parent */
+@import url('../styles.css');
+
+/* Blog Navigation */
+.blog-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--blog-nav-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+[data-theme="light"] .blog-nav {
+    background: var(--blog-nav-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Blog Hero */
+.blog-hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-bg, #0f172a), var(--secondary-bg, #1e293b));
+}
+
+.blog-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.blog-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blog-card {
+    background: var(--blog-card-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.blog-image {
+    height: 200px;
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.blog-card h3 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+.blog-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Code copy button styles */
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+pre:hover .copy-btn {
+    opacity: 1;
+}
+
+.copy-btn:hover {
+    background: var(--accent-purple);
+}
+
+/* Reading progress bar */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+.reading-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-purple));
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .blog-title {
+        font-size: 2.5rem;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+}
