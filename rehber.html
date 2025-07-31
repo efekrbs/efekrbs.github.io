@@ -1197,8 +1197,11 @@ Faydalı Kaynaklar:
             themeBtn.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
         
-        // Load saved theme
+        // Load saved theme and remove loading animation
         document.addEventListener('DOMContentLoaded', function() {
+            // Remove loading animation
+            document.body.classList.add('loaded');
+            
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
             
