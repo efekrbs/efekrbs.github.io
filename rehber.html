@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Portfolio Website Geliştirme Rehberi - Berat Efe Karabaş</title>
+    <meta name="description" content="Sıfırdan modern, interaktif ve responsive portfolio website geliştirme rehberi. HTML5, CSS3, JavaScript ve GitHub Pages kullanımı.">
+    
+    <!-- Import base styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Custom styles for guide -->
+    <style>
+        .guide-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .guide-header {
+            text-align: center;
+            margin-bottom: 60px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .guide-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .guide-content h2 {
+            color: var(--accent-blue);
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 10px;
+        }
+        
+        .guide-content h3 {
+            color: var(--accent-purple);
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+        }
+        
+        .guide-content h4 {
+            color: var(--primary-text);
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .code-block {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+            border-left: 4px solid #ef4444;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+        }
+        
+        .back-to-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--primary-text);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        
+        .back-to-home:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .toc {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .toc h3 {
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            margin: 10px 0;
+        }
+        
+        .toc a {
+            color: var(--primary-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .toc a:hover {
+            color: var(--accent-blue);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-container {
+                padding: 20px 10px;
+            }
+            
+            .guide-content {
+                padding: 25px 20px;
+            }
+            
+            .back-to-home {
+                position: static;
+                display: block;
+                text-align: center;
+                margin: 20px auto;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="Tema Değiştir">
+            🌙
+        </button>
+    </div>
+    
+    <!-- Back to Home -->
+    <a href="index.html" class="back-to-home">
+        🏠 Ana Sayfa
+    </a>
+    
+    <div class="guide-container">
+        <!-- Header -->
+        <div class="guide-header">
+            <h1>🚀 Modern Portfolio Website Geliştirme Rehberi</h1>
+            <p class="subtitle">Sıfırdan profesyonel portfolio website oluşturma kılavuzu</p>
+            <p>Bu rehber, <span class="highlight">Berat Efe Karabaş</span> portfolio websitesinin geliştirilme sürecini adım adım anlatmaktadır.</p>
+        </div>
+        
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>📋 İçindekiler</h3>
+            <ul>
+                <li><a href="#giris">1. Giriş ve Proje Özeti</a></li>
+                <li><a href="#teknolojiler">2. Kullanılan Teknolojiler</a></li>
+                <li><a href="#planlama">3. Proje Planlama</a></li>
+                <li><a href="#kurulum">4. Geliştirme Ortamı Kurulumu</a></li>
+                <li><a href="#html-yapisi">5. HTML Yapısının Oluşturulması</a></li>
+                <li><a href="#css-tasarim">6. CSS ile Tasarım</a></li>
+                <li><a href="#javascript">7. JavaScript İnteraktifliği</a></li>
+                <li><a href="#responsive">8. Responsive Tasarım</a></li>
+                <li><a href="#optimizasyon">9. Performans Optimizasyonu</a></li>
+                <li><a href="#deployment">10. GitHub Pages ile Yayınlama</a></li>
+                <li><a href="#maintenance">11. Bakım ve Güncelleme</a></li>
+                <li><a href="#sonuc">12. Sonuç ve İpuçları</a></li>
+            </ul>
+        </div>
+        
+        <!-- Content -->
+        <div class="guide-content">
+            <h2 id="giris">1. 🎯 Giriş ve Proje Özeti</h2>
+            
+            <p>Bu rehber, modern web teknolojilerini kullanarak profesyonel bir portfolio website'inin nasıl oluşturulacağını adım adım anlatmaktadır. Proje süresince şu hedefleri gerçekleştirdik:</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>🎨 Modern Tasarım</h4>
+                    <p>Glassmorphism efektleri, dark/light mode desteği ve smooth animasyonlar</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📱 Responsive</h4>
+                    <p>Tüm cihazlarda mükemmel görünüm ve kullanıcı deneyimi</p>
+                </div>
+                <div class="feature-item">
+                    <h4>⚡ Performanslı</h4>
+                    <p>Hızlı yüklenme, SEO optimizasyonu ve erişilebilirlik</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔧 İnteraktif</h4>
+                    <p>Typing animasyonları, hover efektleri ve kullanıcı etkileşimleri</p>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 İpucu:</strong> Bu rehberi takip ederken, her adımda kodları test etmeyi unutmayın. Tarayıcınızın geliştirici araçlarını aktif olarak kullanın.
+            </div>
+            
+            <h2 id="teknolojiler">2. 🛠️ Kullanılan Teknolojiler</h2>
+            
+            <h3>Frontend Teknolojileri</h3>
+            <ul>
+                <li><strong>HTML5:</strong> Semantic markup ve modern HTML özellikler</li>
+                <li><strong>CSS3:</strong> Grid, Flexbox, Custom Properties, Animasyonlar</li>
+                <li><strong>JavaScript ES6+:</strong> Modern JavaScript özellikleri</li>
+            </ul>
+            
+            <h3>Araçlar ve Platformlar</h3>
+            <ul>
+                <li><strong>Visual Studio Code:</strong> Kod editörü</li>
+                <li><strong>Git:</strong> Versiyon kontrol sistemi</li>
+                <li><strong>GitHub:</strong> Kod repository ve hosting</li>
+                <li><strong>GitHub Pages:</strong> Ücretsiz web hosting</li>
+            </ul>
+            
+            <h3>Tasarım Prensipleri</h3>
+            <ul>
+                <li><strong>Mobile-First:</strong> Önce mobil, sonra masaüstü tasarım</li>
+                <li><strong>Progressive Enhancement:</strong> Aşamalı iyileştirme</li>
+                <li><strong>Accessibility:</strong> Erişilebilirlik standartları</li>
+                <li><strong>Performance:</strong> Yükleme hızı optimizasyonu</li>
+            </ul>
+            
+            <h2 id="planlama">3. 📋 Proje Planlama</h2>
+            
+            <h3>Sayfa Yapısı Planlaması</h3>
+            <p>Portfolio websitemizin ana bölümlerini planladık:</p>
+            
+            <div class="code-block">
+Portfolio Website Yapısı:
+├── Ana Sayfa (index.html)
+│   ├── Header (Profil bilgileri)
+│   ├── Hakkımda bölümü
+│   ├── Yetenekler (Skills)
+│   ├── Projeler showcase
+│   ├── Blog yazıları preview
+│   ├── İletişim bilgileri
+│   └── Footer
+├── Blog bölümü (/blog/)
+│   ├── Blog ana sayfa
+│   └── Tekil blog yazıları
+├── CV dosyası (/assets/)
+└── Statik dosyalar (images, styles)
+            </div>
+            
+            <h3>Tasarım Sistemi</h3>
+            <p>Tutarlı bir tasarım sistemi oluşturduk:</p>
+            
+            <h4>Renk Paleti</h4>
+            <div class="code-block">
+Dark Theme:
+- Primary Background: #0f172a (Koyu lacivert)
+- Secondary Background: #1e293b (Orta lacivert)  
+- Tertiary Background: #334155 (Açık gri)
+- Primary Text: #e2e8f0 (Açık gri)
+- Secondary Text: #cbd5e1 (Orta gri)
+- Accent Blue: #3b82f6 (Mavi)
+- Accent Purple: #8b5cf6 (Mor)
+- Accent Pink: #ec4899 (Pembe)
+
+Light Theme:
+- Primary Background: #f8fafc (Açık beyaz)
+- Secondary Background: #e2e8f0 (Açık gri)
+- Tertiary Background: #cbd5e1 (Orta gri)
+- Primary Text: #1e293b (Koyu gri)
+- Secondary Text: #475569 (Orta koyu gri)
+            </div>
+            
+            <h4>Typography</h4>
+            <div class="code-block">
+Font Family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+Font Sizes:
+- h1: 3em (48px)
+- h2: 2em (32px) 
+- h3: 1.5em (24px)
+- Body: 1em (16px)
+- Small: 0.9em (14px)
+
+Font Weights:
+- Light: 300
+- Regular: 400
+- Medium: 500
+- Semibold: 600
+- Bold: 700
+            </div>
+            
+            <h2 id="kurulum">4. ⚙️ Geliştirme Ortamı Kurulumu</h2>
+            
+            <h3><span class="step-number">1</span>GitHub Repository Oluşturma</h3>
+            <p>İlk adım olarak GitHub'da yeni bir repository oluşturduk:</p>
+            
+            <div class="code-block">
+1. GitHub.com'a giriş yapın
+2. "New repository" butonuna tıklayın
+3. Repository adını "username.github.io" şeklinde yazın
+   Örnek: efekrbs.github.io
+4. "Public" seçeneğini işaretleyin
+5. "Initialize with README" seçeneğini işaretleyin
+6. "Create repository" butonuna tıklayın
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 Önemli:</strong> Repository adının "username.github.io" formatında olması, GitHub Pages'in otomatik olarak bu domain'de yayınlamasını sağlar.
+            </div>
+            
+            <h3><span class="step-number">2</span>Local Geliştirme Ortamı</h3>
+            <p>Repository'yi local bilgisayarınıza klonlayın:</p>
+            
+            <div class="code-block">
+# Terminal veya Command Prompt'ta çalıştırın
+git clone https://github.com/username/username.github.io.git
+cd username.github.io
+
+# İlk dosyaları oluşturun
+touch index.html
+touch styles.css
+touch README.md
+
+# İlk commit'i yapın
+git add .
+git commit -m "🎉 İlk commit: Proje başlatıldı"
+git push origin main
+            </div>
+            
+            <h3><span class="step-number">3</span>VS Code Kurulumu ve Extensions</h3>
+            <p>Geliştirme sürecini kolaylaştıracak VS Code eklentileri:</p>
+            
+            <div class="code-block">
+Önerilen VS Code Extensions:
+├── Live Server (Canlı preview için)
+├── Prettier (Kod formatlama)
+├── Auto Rename Tag (HTML tag editleme)
+├── Bracket Pair Colorizer (Parantez renklendirme)
+├── CSS Peek (CSS sınıf navigasyonu)
+├── HTML CSS Support (IntelliSense desteği)
+└── GitLens (Git özellikleri)
+            </div>
+            
+            <h2 id="html-yapisi">5. 🏗️ HTML Yapısının Oluşturulması</h2>
+            
+            <h3>Temel HTML Yapısı</h3>
+            <p>Semantic HTML5 elementleri kullanarak sayfa yapısını oluşturduk:</p>
+            
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="tr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Berat Efe Karabaş - Portfolio&lt;/title&gt;
+    &lt;meta name="description" content="Bilgisayar Mühendisliği öğrencisi portfolio sitesi"&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;header&gt;...&lt;/header&gt;
+        &lt;main&gt;
+            &lt;section class="about"&gt;...&lt;/section&gt;
+            &lt;section class="skills"&gt;...&lt;/section&gt;
+            &lt;section class="projects"&gt;...&lt;/section&gt;
+            &lt;section class="blog"&gt;...&lt;/section&gt;
+            &lt;section class="contact"&gt;...&lt;/section&gt;
+        &lt;/main&gt;
+        &lt;footer&gt;...&lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+            
+            <h3>Header Bölümü Detayı</h3>
+            <p>Profil bilgileri ve sosyal medya linkleri için header tasarladık:</p>
+            
+            <div class="code-block">
+&lt;header&gt;
+    &lt;!-- Theme Toggle Button --&gt;
+    &lt;div class="theme-toggle"&gt;
+        &lt;button class="theme-btn" onclick="toggleTheme()"&gt;🌙&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Profile Image --&gt;
+    &lt;div class="profile-img"&gt;
+        &lt;img src="images/pp.jpg" alt="Berat Efe Karabaş" class="profile-photo"&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Name and Title --&gt;
+    &lt;h1&gt;Berat Efe Karabaş&lt;/h1&gt;
+    &lt;p class="subtitle"&gt;
+        &lt;span id="typing-text"&gt;&lt;/span&gt;
+        &lt;span class="cursor"&gt;|&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;!-- Social Links --&gt;
+    &lt;div class="social-links"&gt;
+        &lt;a href="https://github.com/efekrbs" class="social-link"&gt;📧&lt;/a&gt;
+        &lt;a href="https://linkedin.com/in/efekrbs" class="social-link"&gt;💼&lt;/a&gt;
+        &lt;a href="https://github.com/efekrbs" class="social-link"&gt;🐙&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+            </div>
+            
+            <h3>Skills Bölümü</h3>
+            <p>Yetenekleri görsel progress bar'lar ile gösterdik:</p>
+            
+            <div class="code-block">
+&lt;section class="section"&gt;
+    &lt;h2&gt;🛠️ Yeteneklerim&lt;/h2&gt;
+    &lt;div class="skills"&gt;
+        &lt;div class="skill-item"&gt;
+            &lt;span class="skill-icon"&gt;🐍&lt;/span&gt;
+            &lt;h3&gt;Python&lt;/h3&gt;
+            &lt;div class="skill-bar"&gt;
+                &lt;div class="skill-progress" data-width="85"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;span class="skill-percent"&gt;85%&lt;/span&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="skill-item"&gt;
+            &lt;span class="skill-icon"&gt;☕&lt;/span&gt;
+            &lt;h3&gt;Java&lt;/h3&gt;
+            &lt;div class="skill-bar"&gt;
+                &lt;div class="skill-progress" data-width="75"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;span class="skill-percent"&gt;75%&lt;/span&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Diğer skills... --&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </div>
+            
+            <h2 id="css-tasarim">6. 🎨 CSS ile Tasarım</h2>
+            
+            <h3>CSS Custom Properties (Değişkenler)</h3>
+            <p>Tutarlı tasarım için CSS değişkenleri kullandık:</p>
+            
+            <div class="code-block">
+:root {
+    /* Colors */
+    --primary-bg: #0f172a;
+    --secondary-bg: #1e293b;
+    --tertiary-bg: #334155;
+    --primary-text: #e2e8f0;
+    --secondary-text: #cbd5e1;
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-pink: #ec4899;
+    --border-color: rgba(59, 130, 246, 0.2);
+    --card-bg: rgba(15, 23, 42, 0.6);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+    --primary-bg: #f8fafc;
+    --secondary-bg: #e2e8f0;
+    --tertiary-bg: #cbd5e1;
+    --primary-text: #1e293b;
+    --secondary-text: #475569;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --border-color: rgba(59, 130, 246, 0.3);
+}
+            </div>
+            
+            <h3>Glassmorphism Efektleri</h3>
+            <p>Modern cam efektli kartlar için backdrop-filter kullandık:</p>
+            
+            <div class="code-block">
+.section {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.3),
+        0 0 0 1px var(--border-color);
+    border-color: var(--accent-blue);
+}
+            </div>
+            
+            <h3>CSS Grid ve Flexbox</h3>
+            <p>Modern layout teknikleri kullanarak responsive tasarım oluşturduk:</p>
+            
+            <div class="code-block">
+/* Skills Grid Layout */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Projects Grid Layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Flexbox for Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+            </div>
+            
+            <h3>Animasyonlar ve Transitions</h3>
+            <p>Smooth geçişler ve hover efektleri ekledik:</p>
+            
+            <div class="code-block">
+/* Smooth Transitions */
+.skill-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px) scale(1.03);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 
+        0 12px 25px rgba(59, 130, 246, 0.2),
+        0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Typing Animation */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: var(--accent-blue);
+}
+            </div>
+            
+            <h2 id="javascript">7. ⚡ JavaScript İnteraktifliği</h2>
+            
+            <h3>Theme Toggle Functionality</h3>
+            <p>Dark/Light mode geçişi için JavaScript fonksiyonu:</p>
+            
+            <div class="code-block">
+// Theme Toggle Function
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update button icon
+    const themeBtn = document.querySelector('.theme-btn');
+    themeBtn.textContent = newTheme === 'light' ? '🌙' : '☀️';
+}
+
+// Load saved theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const themeBtn = document.querySelector('.theme-btn');
+    themeBtn.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+});
+            </div>
+            
+            <h3>Typing Animation</h3>
+            <p>Dinamik meslek unvanları için typing efekti:</p>
+            
+            <div class="code-block">
+// Typing Animation
+const titles = [
+    "Bilgisayar Mühendisliği Öğrencisi",
+    "Python Developer", 
+    "Algorithm Enthusiast",
+    "Problem Solver"
+];
+
+let currentTitle = 0;
+let currentChar = 0;
+let isDeleting = false;
+
+function typeWriter() {
+    const typingElement = document.getElementById('typing-text');
+    const currentText = titles[currentTitle];
+    
+    if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, currentChar - 1);
+        currentChar--;
+    } else {
+        typingElement.textContent = currentText.substring(0, currentChar + 1);
+        currentChar++;
+    }
+    
+    if (!isDeleting && currentChar === currentText.length) {
+        setTimeout(() => isDeleting = true, 2000);
+    } else if (isDeleting && currentChar === 0) {
+        isDeleting = false;
+        currentTitle = (currentTitle + 1) % titles.length;
+    }
+    
+    const typingSpeed = isDeleting ? 50 : 100;
+    setTimeout(typeWriter, typingSpeed);
+}
+
+// Start typing animation on page load
+document.addEventListener('DOMContentLoaded', typeWriter);
+            </div>
+            
+            <h3>Skill Progress Animation</h3>
+            <p>Scroll ile tetiklenen progress bar animasyonu:</p>
+            
+            <div class="code-block">
+// Skill Progress Animation
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBar = entry.target;
+                const width = progressBar.getAttribute('data-width');
+                progressBar.style.width = width + '%';
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    skillBars.forEach(bar => observer.observe(bar));
+}
+
+// Initialize animations
+document.addEventListener('DOMContentLoaded', function() {
+    animateSkillBars();
+});
+            </div>
+            
+            <h2 id="responsive">8. 📱 Responsive Tasarım</h2>
+            
+            <h3>Mobile-First Approach</h3>
+            <p>Önce mobil tasarımı yapıp, sonra büyük ekranlar için uyarladık:</p>
+            
+            <div class="code-block">
+/* Base Mobile Styles */
+.container {
+    padding: 15px;
+}
+
+.skills {
+    grid-template-columns: 1fr;
+}
+
+.projects-grid {
+    grid-template-columns: 1fr;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .skills {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+            </div>
+            
+            <h3>Mobile Navigation ve UX</h3>
+            <p>Küçük ekranlarda kullanıcı deneyimini iyileştirdik:</p>
+            
+            <div class="code-block">
+@media (max-width: 768px) {
+    /* Smaller profile image */
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        font-size: 60px;
+    }
+    
+    /* Compact header */
+    header {
+        padding: 30px 20px;
+    }
+    
+    /* Stack social links */
+    .social-links {
+        flex-wrap: wrap;
+    }
+    
+    /* Adjusted section padding */
+    .section {
+        padding: 25px 20px;
+    }
+    
+    /* Responsive typography */
+    h1 {
+        font-size: 2.2em;
+    }
+    
+    /* Full-width theme toggle */
+    .theme-toggle {
+        position: relative;
+        top: auto;
+        right: auto;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+            </div>
+            
+            <h2 id="optimizasyon">9. ⚡ Performans Optimizasyonu</h2>
+            
+            <h3>CSS Performance</h3>
+            <p>CSS performansı için will-change ve GPU accelerated properties kullandık:</p>
+            
+            <div class="code-block">
+/* Performance Optimizations */
+.skill-progress,
+.typing-animation,
+.profile-img {
+    will-change: transform;
+}
+
+/* Use transform instead of changing layout properties */
+.skill-item:hover {
+    transform: translateY(-5px) scale(1.03);
+    /* Instead of changing margin or padding */
+}
+
+/* Use opacity for fade effects */
+.loading-element {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.loading-element.loaded {
+    opacity: 1;
+}
+            </div>
+            
+            <h3>Accessibility Improvements</h3>
+            <p>Erişilebilirlik için semantic HTML ve ARIA attributes kullandık:</p>
+            
+            <div class="code-block">
+/* Focus improvements */
+button:focus,
+a:focus,
+input:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #ffffff;
+        --primary-text: #ffffff;
+    }
+}
+            </div>
+            
+            <h3>SEO Optimizasyonu</h3>
+            <p>Arama motoru optimizasyonu için meta tags ve structured data:</p>
+            
+            <div class="code-block">
+&lt;head&gt;
+    &lt;!-- Basic SEO --&gt;
+    &lt;title&gt;Berat Efe Karabaş - Bilgisayar Mühendisliği Öğrencisi Portfolio&lt;/title&gt;
+    &lt;meta name="description" content="Python, Java ve C programlama dilleri konusunda deneyimli bilgisayar mühendisliği öğrencisi. Algorithm geliştirme ve problem çözme odaklı projeler."&gt;
+    &lt;meta name="keywords" content="bilgisayar mühendisliği, python, java, algoritma, portfolio"&gt;
+    &lt;meta name="author" content="Berat Efe Karabaş"&gt;
+    
+    &lt;!-- Open Graph --&gt;
+    &lt;meta property="og:title" content="Berat Efe Karabaş - Portfolio"&gt;
+    &lt;meta property="og:description" content="Bilgisayar Mühendisliği öğrencisi portfolio sitesi"&gt;
+    &lt;meta property="og:image" content="https://efekrbs.github.io/images/pp.jpg"&gt;
+    &lt;meta property="og:url" content="https://efekrbs.github.io"&gt;
+    
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;/head&gt;
+            </div>
+            
+            <h2 id="deployment">10. 🚀 GitHub Pages ile Yayınlama</h2>
+            
+            <h3>Repository Ayarları</h3>
+            <p>GitHub Pages'i aktifleştirmek için repository ayarlarını yapılandırdık:</p>
+            
+            <div class="code-block">
+GitHub Pages Kurulum Adımları:
+
+1. GitHub repository'nizde "Settings" sekmesine gidin
+2. Sol menüden "Pages" seçeneğini bulun
+3. "Source" kısmında "Deploy from a branch" seçin
+4. "Branch" kısmında "main" seçin
+5. Folder olarak "/ (root)" seçin
+6. "Save" butonuna tıklayın
+
+Otomatik deployment için:
+- Her push sonrası site otomatik güncellenir
+- Deployment süreci 1-2 dakika sürer
+- Actions sekmesinden deployment durumunu takip edebilirsiniz
+            </div>
+            
+            <h3>Custom Domain (Opsiyonel)</h3>
+            <p>Kendi domain'inizi bağlamak isterseniz:</p>
+            
+            <div class="code-block">
+Custom Domain Kurulumu:
+
+1. Repository root'unda CNAME dosyası oluşturun:
+   echo "yourdomain.com" > CNAME
+
+2. Domain sağlayıcınızda DNS ayarları:
+   - A Record: 185.199.108.153
+   - A Record: 185.199.109.153  
+   - A Record: 185.199.110.153
+   - A Record: 185.199.111.153
+   
+   VEYA
+   
+   - CNAME Record: username.github.io
+
+3. GitHub Pages settings'de "Custom domain" kısmına 
+   domain'inizi yazın ve "Save" edin
+
+4. "Enforce HTTPS" seçeneğini aktifleştirin
+            </div>
+            
+            <h3>Git Workflow</h3>
+            <p>Geliştirme sürecinde kullandığımız git komutları:</p>
+            
+            <div class="code-block">
+# Günlük development workflow
+git status                    # Değişiklikleri kontrol et
+git add .                     # Tüm değişiklikleri stage'e al
+git commit -m "🎨 Feature açıklaması"  # Commit yap
+git push origin main          # GitHub'a gönder
+
+# Faydalı git komutları
+git log --oneline             # Commit geçmişini gör
+git diff                      # Değişiklikleri karşılaştır
+git checkout -- filename     # Dosyayı eski haline getir
+git reset HEAD filename       # Stage'den dosyayı çıkar
+
+# Branch ile çalışma (advanced)
+git checkout -b feature-name  # Yeni branch oluştur
+git checkout main             # Ana branch'e geç
+git merge feature-name        # Branch'i merge et
+git branch -d feature-name    # Branch'i sil
+            </div>
+            
+            <h2 id="maintenance">11. 🔧 Bakım ve Güncelleme</h2>
+            
+            <h3>İçerik Güncelleme</h3>
+            <p>Portfolio'nuzu güncel tutmak için düzenli bakım yapın:</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>📝 Blog Yazıları</h4>
+                    <p>Yeni projelerinizi ve öğrendiklerinizi blog yazıları olarak ekleyin</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🛠️ Projeler</h4>
+                    <p>Yeni projelerinizi showcase bölümüne ekleyin</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📄 CV Güncellemesi</h4>
+                    <p>CV'nizi düzenli olarak güncelleyin ve yeni versiyonu upload edin</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎯 Skills</h4>
+                    <p>Yeni öğrendiğiniz teknolojileri skills bölümüne ekleyin</p>
+                </div>
+            </div>
+            
+            <h3>Performance Monitoring</h3>
+            <p>Site performansını düzenli olarak kontrol edin:</p>
+            
+            <div class="code-block">
+Performans Kontrol Araçları:
+
+1. Google PageSpeed Insights
+   - https://pagespeed.web.dev/
+   - Site hızını ve optimizasyon önerilerini sunar
+
+2. GTmetrix
+   - https://gtmetrix.com/
+   - Detaylı performans analizi
+
+3. Google Lighthouse (Chrome DevTools)
+   - F12 > Lighthouse sekmesi
+   - Performance, Accessibility, SEO skorları
+
+4. WebPageTest
+   - https://www.webpagetest.org/
+   - Farklı lokasyonlardan test
+
+Hedef Metrikler:
+- First Contentful Paint: &lt; 1.5s
+- Largest Contentful Paint: &lt; 2.5s  
+- Cumulative Layout Shift: &lt; 0.1
+- First Input Delay: &lt; 100ms
+            </div>
+            
+            <h3>Security Best Practices</h3>
+            <p>Güvenlik açısından dikkat edilmesi gerekenler:</p>
+            
+            <div class="code-block">
+Güvenlik Kontrol Listesi:
+
+✅ Kişisel bilgileri (telefon, adres) direkt paylaşmayın
+✅ Email adresini spam'den korumak için obfuscation kullanın
+✅ Social media linklerini güncel tutun
+✅ GitHub repository'lerinde sensitive data olmadığından emin olun
+✅ HTTPS kullanın (GitHub Pages otomatik sağlar)
+✅ External linkler için rel="noopener" ekleyin
+✅ Form validation'ları client-side ve server-side yapın
+✅ Regular backup alın (Git zaten backup görevi görür)
+
+Örnek Email Obfuscation:
+// JavaScript ile
+const email = "berat" + "@" + "example.com";
+
+// HTML entity ile  
+&amp;#98;&amp;#101;&amp;#114;&amp;#97;&amp;#116;&amp;#64;&amp;#101;&amp;#120;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#109;
+            </div>
+            
+            <h2 id="sonuc">12. 🎯 Sonuç ve İpuçları</h2>
+            
+            <h3>Proje Başarı Metrikleri</h3>
+            <p>Bu proje sonunda elde ettiğimiz sonuçlar:</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>🚀 Performans</h4>
+                    <p>Google Lighthouse 90+ skor, hızlı yükleme süreleri</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📱 Responsive</h4>
+                    <p>Tüm cihazlarda mükemmel görünüm ve kullanıcı deneyimi</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎨 Modern UI</h4>
+                    <p>2024 tasarım trendlerine uygun görsel tasarım</p>
+                </div>
+                <div class="feature-item">
+                    <h4>♿ Accessibility</h4>
+                    <p>WCAG 2.1 standartlarına uygun erişilebilirlik</p>
+                </div>
+            </div>
+            
+            <h3>Geliştiriciler İçin İpuçları</h3>
+            
+            <div class="tip-box">
+                <strong>🎯 Frontend Development Tips:</strong>
+                <ul>
+                    <li><strong>Mobile-First:</strong> Her zaman küçük ekrandan başlayın</li>
+                    <li><strong>Progressive Enhancement:</strong> Temel işlevselliği önce sağlayın</li>
+                    <li><strong>Performance:</strong> Gereksiz animasyonlardan kaçının</li>
+                    <li><strong>Accessibility:</strong> Keyboard navigation'ı test edin</li>
+                    <li><strong>SEO:</strong> Semantic HTML kullanın</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>🔧 CSS Best Practices:</strong>
+                <ul>
+                    <li><strong>CSS Custom Properties:</strong> Değişkenler kullanarak maintainability arttırın</li>
+                    <li><strong>BEM Methodology:</strong> Sınıf isimlendirmede tutarlı olun</li>
+                    <li><strong>CSS Grid & Flexbox:</strong> Modern layout teknikleri kullanın</li>
+                    <li><strong>Will-Change:</strong> Animasyonlarda performans optimizasyonu</li>
+                    <li><strong>Critical CSS:</strong> Above-the-fold CSS'i inline yapın</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <strong>⚡ JavaScript Optimizations:</strong>
+                <ul>
+                    <li><strong>Event Delegation:</strong> Event listener'ları optimize edin</li>
+                    <li><strong>Debouncing:</strong> Scroll ve resize event'lerini optimize edin</li>
+                    <li><strong>Intersection Observer:</strong> Scroll animasyonları için kullanın</li>
+                    <li><strong>LocalStorage:</strong> User preferences'ları saklayın</li>
+                    <li><strong>Error Handling:</strong> Try-catch blokları kullanın</li>
+                </ul>
+            </div>
+            
+            <h3>Gelecek Geliştirmeler</h3>
+            <p>Proje için planlanan gelecek özellikler:</p>
+            
+            <div class="code-block">
+Roadmap v3.0:
+
+🔄 Backend Integration
+├── Contact form ile email gönderimi
+├── Blog CMS integration 
+├── Analytics ve visitor tracking
+└── Comment sistemi
+
+🎨 Advanced Features  
+├── PWA (Progressive Web App) desteği
+├── Dark/Light/Auto mode seçenekleri
+├── Multi-language support (EN/TR)
+├── Advanced animations (GSAP)
+└── Image lazy loading
+
+🔧 Technical Improvements
+├── TypeScript migration
+├── CSS-in-JS (Styled Components)
+├── Build process (Webpack/Vite)
+├── Testing (Jest, Cypress)
+└── CI/CD pipeline
+            </div>
+            
+            <h3>Kaynaklar ve Referanslar</h3>
+            
+            <div class="code-block">
+Faydalı Kaynaklar:
+
+📚 Documentation:
+├── MDN Web Docs: https://developer.mozilla.org/
+├── CSS-Tricks: https://css-tricks.com/
+├── W3Schools: https://www.w3schools.com/
+└── Can I Use: https://caniuse.com/
+
+🎨 Design Inspiration:
+├── Dribbble: https://dribbble.com/
+├── Behance: https://www.behance.net/
+├── Awwwards: https://www.awwwards.com/
+└── CodePen: https://codepen.io/
+
+🛠️ Tools:
+├── VS Code: https://code.visualstudio.com/
+├── GitHub Desktop: https://desktop.github.com/
+├── Chrome DevTools: Built-in browser tool
+└── Figma: https://www.figma.com/
+
+🚀 Deployment:
+├── GitHub Pages: https://pages.github.com/
+├── Netlify: https://www.netlify.com/
+├── Vercel: https://vercel.com/
+└── Surge.sh: https://surge.sh/
+            </div>
+            
+            <div class="warning-box">
+                <strong>⚠️ Önemli Notlar:</strong>
+                <ul>
+                    <li>Bu rehber <strong>2024 itibariyle</strong> güncel teknolojileri kapsamaktadır</li>
+                    <li>Web teknolojileri hızla değişir, düzenli olarak güncellemeleri takip edin</li>
+                    <li>Production'a geçmeden önce <strong>mutlaka test</strong> edin</li>
+                    <li>Backup almayı unutmayın (Git ile automatic backup)</li>
+                    <li>Community'den yardım almaktan çekinmeyin</li>
+                </ul>
+            </div>
+            
+            <h3>Son Söz</h3>
+            <p>Bu rehber, modern web development pratiklerini kullanarak profesyonel bir portfolio website'i oluşturma sürecini kapsamlı bir şekilde anlatmaktadır. Her adımda <strong>best practices</strong> ve <strong>modern teknolojiler</strong> kullanılarak, hem görsel hem de teknik açıdan kaliteli bir sonuç elde edilmiştir.</p>
+            
+            <p><strong>Unutmayın:</strong> Web development bir öğrenme süreci ve sürekli gelişim gerektirir. Bu rehberdeki teknikleri temel alarak kendi projelerinizi geliştirirken, yeni teknolojileri de öğrenmeye devam edin.</p>
+            
+            <div class="tip-box">
+                <strong>🎉 Tebrikler!</strong> Bu rehberi tamamladıysanız, artık modern bir portfolio website'ine sahipsiniz. Projenizi arkadaşlarınızla paylaşın, feedback alın ve sürekli geliştirmeye devam edin!
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); margin-top: 40px;">
+            <p style="color: var(--secondary-text);">
+                📚 Bu rehber <strong>Berat Efe Karabaş</strong> tarafından hazırlanmıştır.<br>
+                🔗 <a href="https://efekrbs.github.io" style="color: var(--accent-blue);">Portfolio</a> | 
+                <a href="https://github.com/efekrbs" style="color: var(--accent-blue);">GitHub</a><br>
+                📅 Son güncelleme: Ocak 2024
+            </p>
+        </footer>
+    </div>
+    
+    <!-- Theme Toggle Script -->
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const themeBtn = document.querySelector('.theme-btn');
+            themeBtn.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeBtn = document.querySelector('.theme-btn');
+            if (themeBtn) {
+                themeBtn.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
