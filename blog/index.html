@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="blog.css">
 </head>
-<body>
+<body class="loaded">
     <!-- Navigation -->
     <nav class="blog-nav">
         <div class="nav-container">
@@ -261,6 +261,9 @@
     </footer>
 
     <script>
+        // Ensure loading screen is hidden immediately
+        document.body.classList.add('loaded');
+        
         // Theme Management
         const themeToggle = document.getElementById('theme-toggle');
         const currentTheme = localStorage.getItem('theme') || 'dark';

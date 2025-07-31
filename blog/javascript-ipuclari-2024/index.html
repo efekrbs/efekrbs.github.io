@@ -724,6 +724,9 @@ themeStore.setState({ theme: 'dark' });</code></pre>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     
     <script>
+        // Ensure loading screen is hidden immediately
+        document.body.classList.add('loaded');
+        
         // Theme Management
         const themeToggle = document.getElementById('theme-toggle');
         const currentTheme = localStorage.getItem('theme') || 'dark';

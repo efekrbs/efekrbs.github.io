@@ -70,7 +70,7 @@
     }
     </script>
 </head>
-<body>
+<body class="loaded">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -1025,6 +1025,10 @@ CMD ["node", "src/server.js"]</code></pre>
     </section>
 
     <!-- Scripts -->
+    <script>
+        // Ensure loading screen is hidden immediately
+        document.body.classList.add('loaded');
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../../script.js"></script>
